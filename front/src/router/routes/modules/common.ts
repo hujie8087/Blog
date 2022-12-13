@@ -1,17 +1,49 @@
-import type { RouteRecordRaw } from 'vue-router'
-
+import type { RouteRecordRaw } from 'vue-router';
+import Layout from '@/layout/default.vue';
 // 路由规则
 const routes: RouteRecordRaw[] = [
   {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/HomePage.vue')
-  },
-  {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/LoginPage.vue')
-  }
-]
+    component: () => import('@/views/LoginPage.vue'),
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/index',
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/HomePage.vue'),
+      },
+      {
+        path: '/MessageBoard',
+        name: 'MessageBoard',
+        component: () => import('@/views/MessageBoard.vue'),
+      },
+      {
+        path: '/TimeLine',
+        name: 'TimeLine',
+        component: () => import('@/views/TimeLine.vue'),
+      },
+      {
+        path: '/TestField',
+        name: 'TestField',
+        component: () => import('@/views/TestField.vue'),
+      },
+      {
+        path: '/AboutMe',
+        name: 'AboutMe',
+        component: () => import('@/views/AboutMe.vue'),
+      },
+      {
+        path: '/Analytics',
+        name: 'Analytics',
+        component: () => import('@/views/Analytics.vue'),
+      },
+    ],
+  },
+];
 
-export default routes
+export default routes;

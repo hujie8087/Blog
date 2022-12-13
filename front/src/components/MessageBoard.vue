@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import Bus from '../plugins/Bus.js';
+import Bus from '@/plugins/Bus.js';
 const { title } = defineProps(['title']);
 const form = reactive({
   name: '',

@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import Bus from '../plugins/Bus.js';
+import Bus from '@/plugins/Bus.js';
 const emit = defineEmits(['reply-handle']);
 const { comment } = defineProps(['comment']);
 const replyHandle = () => {

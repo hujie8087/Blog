@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const logo = ref("Jayden's Blog");
-
-const activeIndex = ref('/');
+const route = useRoute();
+const activeIndex = ref(route.path);
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
@@ -24,13 +24,13 @@ const handleSelect = (key: string, keyPath: string[]) => {
             ><span class="topLogo">{{ logo }}</span>
           </el-menu-item>
           <div class="flex-grow" />
-          <el-menu-item index="/">博文</el-menu-item>
-          <el-menu-item index="MessageBoard">留言</el-menu-item>
-          <el-menu-item index="TimeLine">时间轴</el-menu-item>
-          <el-menu-item index="TestField">试验田</el-menu-item>
-          <el-menu-item index="AboutMe">关于</el-menu-item>
-          <el-menu-item index="Analytics">访问统计</el-menu-item>
-          <el-menu-item index="Analytics">开放式后台</el-menu-item>
+          <el-menu-item index="/home">博文</el-menu-item>
+          <el-menu-item index="/MessageBoard">留言</el-menu-item>
+          <el-menu-item index="/TimeLine">时间轴</el-menu-item>
+          <el-menu-item index="/TestField">试验田</el-menu-item>
+          <el-menu-item index="/AboutMe">关于</el-menu-item>
+          <el-menu-item index="/Analytics">访问统计</el-menu-item>
+          <el-menu-item index="/Analytics">开放式后台</el-menu-item>
         </el-menu>
       </div>
     </div>

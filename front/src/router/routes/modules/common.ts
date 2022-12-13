@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/TimeLine',
         name: 'TimeLine',
-        component: () => import('@/views/TimeLine.vue'),
+        component: () => import('@/views/TimeLine/index.vue'),
       },
       {
         path: '/TestField',

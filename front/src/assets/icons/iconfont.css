@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3821380 */
-  src: url('iconfont.woff2?t=1670812386476') format('woff2'),
-       url('iconfont.woff?t=1670812386476') format('woff'),
-       url('iconfont.ttf?t=1670812386476') format('truetype');
+  src: url('iconfont.woff2?t=1670917804726') format('woff2'),
+       url('iconfont.woff?t=1670917804726') format('woff'),
+       url('iconfont.ttf?t=1670917804726') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gongju:before {
+  content: "\e797";
 }
 
 .icon-shujuku:before {

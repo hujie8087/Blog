@@ -235,7 +235,7 @@ onMounted(() => {
 
 <style scoped lang="less">
 #clock {
-  width: 50rem;
-  height: 50rem;
+  width: 40rem;
+  height: 40rem;
 }
 </style>

@@ -62,8 +62,8 @@ const timeLineList = reactive([
   align-items: center;
   .clock {
     position: absolute;
-    top: -10rem;
-    left: -10rem;
+    top: 0rem;
+    left: -8rem;
   }
   .FriendUrlBac {
     width: 100%;

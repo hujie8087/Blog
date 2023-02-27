@@ -1,19 +1,19 @@
+import { Log4jsLogger } from '@nestx-log4js/core';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ValidationPipe } from '@nestjs/common';
-import * as session from 'express-session';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
-import { Response } from './common/middleware/response.middleware';
-import { httpFilter } from './common/middleware/filter.middleware';
-/*
- * NestExpressApplication 静态文件类型推断
- *
+import { Logger } from '@nestjs/common';
+
+const listenPort = 3000;
+const logger = new Logger('main.ts');
+/**
+ *主方法
  */
-async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  // swagger配置
+const bootstrap = async () => {
+  const app = await NestFactory.create(AppModule);
+  /**
+   * 配置swagger
+   */
   const swaggerOptions = new DocumentBuilder()
     .setTitle('jaydenBlog Api document')
     .setDescription('接口文档')
@@ -22,6 +22,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, swaggerOptions);
   SwaggerModule.setup('doc', app, document);
+<<<<<<< HEAD
   // 设置全局验证管道
   app.useGlobalPipes(new ValidationPipe());
   // 全局设置session
@@ -46,3 +47,14 @@ async function bootstrap() {
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
+=======
+  /**
+   * 使用log4js输出日志
+   */
+  app.useLogger(app.get(Log4jsLogger));
+  await app.listen(listenPort);
+};
+bootstrap().then(() => {
+  logger.log(`listen in http://localhost:${listenPort}`);
+});
+>>>>>>> bdced18c1edcaefa6ed37d61c85b3114429a0d99

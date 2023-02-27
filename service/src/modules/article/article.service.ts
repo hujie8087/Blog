@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import * as dayjs from 'dayjs';
 import { Model } from 'mongoose';
-import { Article, ArticleType } from './classes/article';
+import { Article, CreateArticle } from './classes/article';
 
 @Injectable()
 export class ArticleService {
@@ -10,10 +11,11 @@ export class ArticleService {
     private readonly articleModel: Model<Article>,
   ) {}
   // 新建文章
-  async create(body: Article): Promise<void> {
-    console.log(body);
-
-    await this.articleModel.create(body);
+  async create(body: CreateArticle): Promise<void> {
+    const article = Object.assign(body, {
+      CreateDate: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+    });
+    await this.articleModel.create(article);
   }
   // 查找所有数据
   async findAll(): Promise<Article[]> {
@@ -21,12 +23,18 @@ export class ArticleService {
     return articles;
   }
   //  编辑文章
-  async update(body: ArticleType) {
+  async update(body: Article) {
+    body.UpdateDate = dayjs().format('YYYY-MM-DD HH:mm:ss');
     await this.articleModel.findByIdAndUpdate(body._id, body);
   }
   // 查询文章详情
-  async findOne(id: string): Promise<Article> {
-    return await this.articleModel.findOne({ _id: id });
+  async findOne(id: string): Promise<Article | string> {
+    if (id.match(/^[0-9a-fA-F]{24}$/)) {
+      const articleInfo = await this.articleModel.findById(id);
+      return articleInfo;
+    } else {
+      return '文章不存在';
+    }
   }
   // 删除文章
   async delete(id: string) {

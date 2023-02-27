@@ -12,11 +12,3 @@ export const fetchUserList = async () => {
 	);
 	return adapter(adapterOfFetchUserList, data);
 };
-
-/** 获取文章列表 */
-export const fetchArticleList = async () => {
-	const data = await mockRequest.post<ApiArticleManagement.Article[] | null>(
-		"/getAllArticleList"
-	);
-	return adapter(adapterOfFetchArticleList, data);
-};

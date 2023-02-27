@@ -9,7 +9,8 @@ export const ArticleSchema = new Schema({
   CreateDate: { type: String, required: true },
   Summary: { type: String, required: true },
   Title: { type: String, required: true },
-  Token: { type: String, required: true },
+  Token: { type: String },
+  UpdateDate: { type: String },
   articleReadNum: { type: Number, required: true },
   order: { type: Number, required: true },
 });

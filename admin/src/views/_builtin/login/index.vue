@@ -100,6 +100,8 @@ const activeModule = computed(() => {
 	if (findItem) {
 		Object.assign(active, findItem);
 	}
+	console.log(active);
+
 	return active;
 });
 

@@ -3,12 +3,14 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { HelloModule } from './modules/hello/hello.module';
 import { ArticleModule } from './modules/article/article.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { Log4jsModule } from '@nestx-log4js/core';
 
 // 装饰器
 @Module({
   imports: [
     HelloModule,
     ArticleModule,
+    Log4jsModule.forRoot(),
     MongooseModule.forRoot('mongodb://localhost:27017/blog'),
   ],
   controllers: [],

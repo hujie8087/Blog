@@ -37,6 +37,7 @@ export class ArticleController {
   @ApiOperation({ summary: '新建文章' })
   async create(@Body() createArticleDto: Article): Promise<ArticleResponse> {
     await this.articleService.create(createArticleDto);
+
     return {
       code: 200,
       message: '添加文章成功',

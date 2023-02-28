@@ -28,15 +28,10 @@
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
-<<<<<<< HEAD
-    "@types/express-session": "^1.17.5",
-    "@types/multer": "^1.4.7",
-    "class-transformer": "^0.5.1",
-=======
     "@nestx-log4js/core": "^1.5.1",
->>>>>>> bdced18c1edcaefa6ed37d61c85b3114429a0d99
     "class-validator": "^0.13.2",
     "compressing": "^1.6.3",
+    "crypto": "^1.0.1",
     "dayjs": "^1.11.7",
     "express-session": "^1.17.3",
     "mongoose": "^6.8.2",

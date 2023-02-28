@@ -22,32 +22,6 @@ const bootstrap = async () => {
     .build();
   const document = SwaggerModule.createDocument(app, swaggerOptions);
   SwaggerModule.setup('doc', app, document);
-<<<<<<< HEAD
-  // 设置全局验证管道
-  app.useGlobalPipes(new ValidationPipe());
-  // 全局设置session
-  app.use(
-    session({
-      secret: 'jaydenBlog',
-      rolling: true,
-      name: 'blog.session',
-      cookie: { maxAge: 60000 },
-    }),
-  );
-  // 全局响应拦截器
-  app.useGlobalInterceptors(new Response());
-  // 全局异常拦截器
-  app.useGlobalFilters(new httpFilter());
-  // 配置文件静态访问路径，prefix增加文件前缀
-  app.useStaticAssets(join(__dirname, 'images'), {
-    prefix: '/images',
-  });
-  //
-  await app.listen(3000);
-  console.log(`Application is running on: ${await app.getUrl()}`);
-}
-bootstrap();
-=======
   /**
    * 使用log4js输出日志
    */
@@ -57,4 +31,3 @@ bootstrap();
 bootstrap().then(() => {
   logger.log(`listen in http://localhost:${listenPort}`);
 });
->>>>>>> bdced18c1edcaefa6ed37d61c85b3114429a0d99

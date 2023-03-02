@@ -1,63 +1,49 @@
-import { IResponse } from './../../interface/response.interface';
-import { Injectable, Logger } from '@nestjs/common';
+import { User } from 'src/interface/user.interface';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from 'src/interface/user.interface';
-
-const logger = new Logger('user.service');
-
+import { RedisService } from 'nestjs-redis/dist';
 @Injectable()
 export class UserService {
-  private response: IResponse;
+  public client;
   constructor(
     @InjectModel('USER_MODEL') private readonly userModel: Model<User>,
-  ) {}
-
-  public async create(user: User) {
-    return await this.findUserByPhone(user.phone)
-      .then((res) => {
-        if (res.length > 0) {
-          this.response = { code: 500, message: '当前手机号已注册！' };
-          throw this.response;
-        }
-      })
-      .then(async () => {
-        try {
-          const createUser = new this.userModel(user);
-          await createUser.save();
-          this.response = { code: 200, message: '用户注册成功' };
-          return this.response;
-        } catch (error) {
-          this.response = {
-            code: 500,
-            message: `用户注册失败，请联系管理员，错误详情：${error.message}`,
-          };
-          throw this.response;
-        }
-      })
-      .catch((err) => {
-        logger.log(`${user.phone}:${err.message}`);
-        return this.response;
-      });
+    private readonly redisService: RedisService,
+  ) {
+    this.getClient();
+  }
+  async getClient() {
+    this.client = await this.redisService.getClient();
+  }
+  public async hello() {
+    return await this.set('jayden', 'hello word!');
   }
 
-  private async findUserByPhone(phone: string) {
-    return await this.userModel.find({ phone });
+  async set(key: string, value: any, seconds?: number) {
+    value = JSON.stringify(value);
+    if (!this.client) {
+      await this.getClient();
+    }
+    if (!seconds) {
+      return await this.client.set(key, value);
+    } else {
+      return await this.client.set(key, value, 'EX', seconds);
+    }
   }
-
+  //获取值的方法
+  async get(key: string) {
+    if (!this.client) {
+      return await this.getClient();
+    }
+    const data = await this.client.get(key);
+    if (!data) return;
+    return JSON.parse(data);
+  }
   findAll() {
     return `This action returns all user`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, user: User) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  public async findUserByPhone(phone: string) {
+    return await this.userModel.find({ phone });
   }
 }

@@ -18,7 +18,14 @@ const bootstrap = async () => {
     .setTitle('jaydenBlog Api document')
     .setDescription('接口文档')
     .setVersion('1.0')
-    .addBearerAuth()
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+      'jwt',
+    )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerOptions);
   SwaggerModule.setup('doc', app, document);

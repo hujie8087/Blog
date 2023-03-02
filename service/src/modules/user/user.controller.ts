@@ -6,41 +6,29 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { User } from 'src/interface/user.interface';
+import { Role } from '../role/role.decorator';
 import { UserService } from './user.service';
 
 @Controller('user')
 @ApiTags('用户模块')
+// @UseGuards(AuthGuard('jwt'))
+@ApiBearerAuth('jwt')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  @ApiOperation({
-    summary: '用户注册',
-  })
-  async create(@Body() createUserDto: User) {
-    return await this.userService.create(createUserDto);
-  }
-
   @Get()
+  @Role('admin')
   findAll() {
     return this.userService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: User) {
-    return this.userService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+  @Get('hello')
+  hello() {
+    return this.userService.hello();
   }
 }

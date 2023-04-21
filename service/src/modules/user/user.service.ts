@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { RedisService } from 'nestjs-redis/dist';
+
 @Injectable()
 export class UserService {
   public client;
@@ -43,7 +44,7 @@ export class UserService {
     return `This action returns all user`;
   }
 
-  public async findUserByPhone(phone: string) {
-    return await this.userModel.find({ phone });
+  public async findUserByUsername(username: string) {
+    return await this.userModel.find({ username });
   }
 }

@@ -2,222 +2,226 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.9.7](https://github.com/honghuangdc/soybean-admin/compare/v0.9.6...v0.9.7) (2022-11-07)
-
+## [1.0.0](https://github.com/HalseySpicy/Geeker-Admin/compare/v0.0.7...v1.0.0) (2023-04-15)
 
 ### Features
 
-* **projects:** 全局搜索菜单及消息通知适配移动端 ([97e2ffd](https://github.com/honghuangdc/soybean-admin/commit/97e2ffddf4ac047133dc016a91ac07556e562d29))
-* **projects:** 实现用户管理页面 ([472f93b](https://github.com/honghuangdc/soybean-admin/commit/472f93bfc111e8ca94adef823b8cc12e4f8cd2c6))
-* **projects:** 适配移动端，修复Tab关闭图标的bug ([296b154](https://github.com/honghuangdc/soybean-admin/commit/296b154be5dfe410b3cfca9afaeeaf9c47de3e0c)), closes [#87](https://github.com/honghuangdc/soybean-admin/issues/87) [#106](https://github.com/honghuangdc/soybean-admin/issues/106) [#109](https://github.com/honghuangdc/soybean-admin/issues/109) [#111](https://github.com/honghuangdc/soybean-admin/issues/111)
-* **projects:** 添加请求适配adapter层应用的示例页面 ([8d11a6a](https://github.com/honghuangdc/soybean-admin/commit/8d11a6affcfa37344011a6aaf3d6e005546f0e61))
-* **projects:** 添加生产的主题配置缓存 ([718c362](https://github.com/honghuangdc/soybean-admin/commit/718c36263e451a39bca6da6c33657a09515ffbcc))
-* **projects:** 添加系统管理的页面 ([c33b5eb](https://github.com/honghuangdc/soybean-admin/commit/c33b5ebfefbb3ae507141bd2e9414231fd1512d4))
-* **projects:** 添加组件名称，调整vue文件里面的类型声明位置 ([f64bc91](https://github.com/honghuangdc/soybean-admin/commit/f64bc91ce285c7a9806ed0f6ae970d9b598fd0cb))
-* **projects:** 添加provide、inject上下文示例 ([a444731](https://github.com/honghuangdc/soybean-admin/commit/a444731e9eef43022930c3550dcfc058e70a2941))
-* **projects:** 系统消息组件代码优化 ([9518372](https://github.com/honghuangdc/soybean-admin/commit/9518372fe0431d4e08a5f40d1b2982691fbb4107))
-* **projects:** 增加返回顶部功能 ([894b0f1](https://github.com/honghuangdc/soybean-admin/commit/894b0f1c182a36ad1774a8144bf50dd4e0b62a46))
-* **projects:** 增加系统消息组件 ([afa0134](https://github.com/honghuangdc/soybean-admin/commit/afa0134fdd63c253e102bc129e275d16ca25508e))
-* **projects:** add constant route page without login status[添加未登录可访问的固定路由示例页面] ([78efd77](https://github.com/honghuangdc/soybean-admin/commit/78efd7793a241811065caf56edf7e68aea58bc8c))
-* **projects:** add pinia setup syntax example: setup-store[添加setup syntax的pinia示例setup-store] ([82c4b09](https://github.com/honghuangdc/soybean-admin/commit/82c4b09b9411390f97c2d10bb211c66ed9656b63))
-* **projects:** import i18n [引入i18n] ([b632b7f](https://github.com/honghuangdc/soybean-admin/commit/b632b7ffed5c6d6ec15c23c8cce030bf669c554f))
-* **projects:** new router system [新的路由系统] ([c7b6a3f](https://github.com/honghuangdc/soybean-admin/commit/c7b6a3fbecd1ba051833e4e47b75a06935f212c8))
-* **projects:** refactor icon system, unify icon usage [重构图标系统，统一图标用法] ([811f820](https://github.com/honghuangdc/soybean-admin/commit/811f820644053606e50624c2f184f9669f3eff7e))
-* **projects:** support constant route without login status[支持未登录状态下访问自定义的固定路由] ([a539112](https://github.com/honghuangdc/soybean-admin/commit/a539112a0f53183ee073d4eb9034ef48209fe30c))
-* **projects:** useNaiveTable函数：类型部分 ([02992dc](https://github.com/honghuangdc/soybean-admin/commit/02992dc02d105cbfcebbea397438c68db1fa8177))
-* **tabs:** 多页签增加关闭所有 ([8237adb](https://github.com/honghuangdc/soybean-admin/commit/8237adb9c0b187911df37d6d99fd84718bc3ea8f))
-
+- 🚀 升级依赖插件 && 新增树型 ProTbale 示例(更多查看详情) ([ed0ea75](https://github.com/HalseySpicy/Geeker-Admin/commit/ed0ea757555f047f6890632e598ee3293d3598cd))
+- 🚀 升级依赖插件 && 修复 bug(查看详情) ([4febadc](https://github.com/HalseySpicy/Geeker-Admin/commit/4febadc10dd794ec8ea1c7864a3771b1b477f743))
+- 🚀 新增路由白名单访问控制 ([97dc264](https://github.com/HalseySpicy/Geeker-Admin/commit/97dc26484c6eead2ae4c8c79d50b550f24f19a02))
+- 🚀 优化 ProTable && 面包屑导航 ([905d7f1](https://github.com/HalseySpicy/Geeker-Admin/commit/905d7f1fd2b18d9650e6ba7d439dfdcf50363d11))
+- 🚀 优化代码 ([cd333df](https://github.com/HalseySpicy/Geeker-Admin/commit/cd333dfe5de2aa7fa415326e6a06b83d3bd260d5))
+- 🚀 优化代码和样式细节 ([5b4b926](https://github.com/HalseySpicy/Geeker-Admin/commit/5b4b9266de4f420f32fca70dadb76242d129e604))
+- 🚀 优化代码和样式细节 ([756094c](https://github.com/HalseySpicy/Geeker-Admin/commit/756094c402e14841c07cd6062b701929f7f31737))
+- 🚀 优化代码逻辑 && 更新微信群二维码 ([629e824](https://github.com/HalseySpicy/Geeker-Admin/commit/629e8243466fda5da9f0ec781aa0b584e49f4501))
+- 🚀 优化代码细节问题 ([a6a6ced](https://github.com/HalseySpicy/Geeker-Admin/commit/a6a6cedeb40f2f7901f0dcd0ec7f1c283a491c61))
+- 🚀 优化样式、代码细节 ([1b02f45](https://github.com/HalseySpicy/Geeker-Admin/commit/1b02f457162267b090ad946e0bad91e5d0dd14b1))
+- 🚀 allow nested tree enum data ([c2fa2be](https://github.com/HalseySpicy/Geeker-Admin/commit/c2fa2be54a6af0309ba45bd4ca68170c66edc357))
+- 🚀 refactoring project configuration ([7ede988](https://github.com/HalseySpicy/Geeker-Admin/commit/7ede988bae3ad0b33d9e5ac1ea6145c4d7aa89e6))
+- **ProTable:** 🚀 插槽引入 ElTable 的 scope，可获取$index 等 ([4cb7dba](https://github.com/HalseySpicy/Geeker-Admin/commit/4cb7dba40c10e693e324b7c647aa65917aeb0b02))
 
 ### Bug Fixes
 
-* **deps:** decrease @types/node version to fix TS type error [降低@types/node版本修复TS的类型错误] ([149d22a](https://github.com/honghuangdc/soybean-admin/commit/149d22a4a491ca5fc6c52375046e9f1cb86ee76d))
-* **projects:** 修复多个后端服务时的本地代理 ([2aba58c](https://github.com/honghuangdc/soybean-admin/commit/2aba58c973e5d0ea975443a8b22c9d94283d4fb9))
-* **projects:** 修复构建后mockjs对xhr的影响问题 ([7757285](https://github.com/honghuangdc/soybean-admin/commit/77572855c3f7161697f42e6da36771c15707f0ab))
-* **projects:** 修复图标的TS类型 ([dbd6760](https://github.com/honghuangdc/soybean-admin/commit/dbd676095b42aaebc783d5c89478306a453195a5))
-* **projects:** 修复eslint规则 ([d7f5bf3](https://github.com/honghuangdc/soybean-admin/commit/d7f5bf3373e7884b8dc2c696a2c36e9cf27ad64b))
-* **projects:** 修复import.meta.env的TS类型 ([1994262](https://github.com/honghuangdc/soybean-admin/commit/19942625d58e673126db5249488555de71d18457))
-* **projects:** 修复tab不显示路由首页的问题 ([a792bb5](https://github.com/honghuangdc/soybean-admin/commit/a792bb5cb3c388ba3b93e17bab8f42d23cd5df4a))
-* **projects:** 修复TS类型问题 ([16dce9a](https://github.com/honghuangdc/soybean-admin/commit/16dce9a4ce4d3aa822d70f6e5199eb9c86e33ad9))
-* **projects:** add iconify json ([8a1ec93](https://github.com/honghuangdc/soybean-admin/commit/8a1ec938e7a26728919024e9f5b7b0af2b270aba))
-* **svg-icon:** 自定义图标在Dropdown组件下hover状态无法显示图标 ([0523f08](https://github.com/honghuangdc/soybean-admin/commit/0523f0838246041bfc09130e21369bd777f63682))
-* **utils:** 修复iconifyRender ([c37d0ac](https://github.com/honghuangdc/soybean-admin/commit/c37d0ac7887a3451b8558fc4aa6c05ed3b0ef74f))
+- 🧩 修复 ImportExcel 组件 bug ([ab7e9dd](https://github.com/HalseySpicy/Geeker-Admin/commit/ab7e9dde400aa80ec2e9fa58d9f2168fc3d14f18))
+- 🧩 修复 ImportExcel 组件 bug ([803ba58](https://github.com/HalseySpicy/Geeker-Admin/commit/803ba58a2c3fae7f6d8783ca534e2b41c987f027))
+- 🧩 修复 ProTable 组件打印功能 bug ([a88b7df](https://github.com/HalseySpicy/Geeker-Admin/commit/a88b7df4623e30459ef3c92196b720efcb200f2f))
+- 🧩 修复 TreeFilter 组件默认值 bug ([8e515f0](https://github.com/HalseySpicy/Geeker-Admin/commit/8e515f0d4058f573cbd53281ef68aec38b8dacb9))
+- 🧩 修复 TreeFilter 组件默认值 bug ([f23a94d](https://github.com/HalseySpicy/Geeker-Admin/commit/f23a94d6edf442babdc4cd5a52ea63ebbbcac44f))
+- 🧩 修复 useDebounceFn 错误使用 ([99d4278](https://github.com/HalseySpicy/Geeker-Admin/commit/99d4278a29b7fa970caba55f43134cebd1d3bec6))
+- 🧩 修复多图片上传预览初始化异常 ([d1a917f](https://github.com/HalseySpicy/Geeker-Admin/commit/d1a917f10326b7742b4445c495de12603df658c1))
+- 🧩 修复分栏布局路径匹配 bug ([b06bd12](https://github.com/HalseySpicy/Geeker-Admin/commit/b06bd123fa6af0dcb7d5cc9bc9215f13b91ace5f))
+- 🧩 修复横向布局下最大化失效 ([e416ddb](https://github.com/HalseySpicy/Geeker-Admin/commit/e416ddb732ae336ca4e7e43ebdeb89b24085d1b1))
+- 🧩 修复路由重置 bug ([52b7e66](https://github.com/HalseySpicy/Geeker-Admin/commit/52b7e66febf1db9cd3325eb0e1e45213ff1528c2))
+- 🧩 修复弱类型检查错误 ([b32310e](https://github.com/HalseySpicy/Geeker-Admin/commit/b32310ed2f546e3efa918d5f7eee2c3868a98cb7))
 
-### [0.9.6](https://github.com/honghuangdc/soybean-admin/compare/v0.9.5...v0.9.6) (2022-06-15)
-
+### 0.0.7 (2022-12-28)
 
 ### Features
 
-* **projects:** 本地svg动态渲染图标 ([c3c975e](https://github.com/honghuangdc/soybean-admin/commit/c3c975ee1142987b7ded0107bf91d0080d5651fe)), closes [#61](https://github.com/honghuangdc/soybean-admin/issues/61)
-* **projects:** 上下结构，菜单支持横向滚动 ([808051b](https://github.com/honghuangdc/soybean-admin/commit/808051b29dd682e1cbcf0e211774efb9cc12713a))
-* **projects:** 新增Antv G2图表示例 ([2d64a2e](https://github.com/honghuangdc/soybean-admin/commit/2d64a2e57c8d83c8d06f210eeefef8f31b3abeb9))
-* **projects:** 增加设置当前Tab页签名称功能 ([487213b](https://github.com/honghuangdc/soybean-admin/commit/487213b64853765e2bd186474e4607572624a33e))
-
+- 🚀 二次封装 wangEditor 富文本编辑器(50%) ([4f8e266](https://gitee.com/laramie/Geeker-Admin/commit/4f8e266b7dd25a7df18d302e88e14454bfa3816b))
+- 🚀 更新插件、优化代码(请查看详情) ([dac6dec](https://gitee.com/laramie/Geeker-Admin/commit/dac6dec75466c19731ad7cf083f8c39940342140))
+- 🚀 更新微信群二维码 ([7e890d0](https://gitee.com/laramie/Geeker-Admin/commit/7e890d0afe0a11170d73e3c2c4ef04d37a582e94))
+- 🚀 请求全局 loading 更改为可配置 ([a75d62f](https://gitee.com/laramie/Geeker-Admin/commit/a75d62f627195ac420cf24ad7f51245b2e5bf04e))
+- 🚀 升级 element-plus 到 2.25 ([e98c035](https://gitee.com/laramie/Geeker-Admin/commit/e98c035caa6d1ab04319673e0db65837c6887126))
+- 🚀 升级 vite、vue 版本 && 优化分栏布局样式 ([b2b1b59](https://gitee.com/laramie/Geeker-Admin/commit/b2b1b599bc1fa0f1c64c5c58fb31d3719f415301))
+- 🚀 使用属性透传重构 ProTable 组件 ([a428e89](https://gitee.com/laramie/Geeker-Admin/commit/a428e89a3784c826eceaaee548b97975afbe1d45))
+- 🚀 添加 wangEditor 组件 ([d6d2fa7](https://gitee.com/laramie/Geeker-Admin/commit/d6d2fa7d27887bb4a9e40e9d7037d4621812e16a))
+- 🚀 完成 wangEditor 富文本二次封装 ([7362bfb](https://gitee.com/laramie/Geeker-Admin/commit/7362bfbff19224045e3bb20fa939a78c556cc805))
+- 🚀 完善按钮、菜单权限示例 ([6793f0c](https://gitee.com/laramie/Geeker-Admin/commit/6793f0cd7372b8a080f6d2649b05cdd0c62bd853))
+- 🚀 新增 主题色、灰色模式、色弱模式 配置 ([7821157](https://gitee.com/laramie/Geeker-Admin/commit/7821157059ed9c21d2844f75049f8fa999b19944))
+- 🚀 新增 pro-form ([3ab5a5b](https://gitee.com/laramie/Geeker-Admin/commit/3ab5a5b4f63fca227944ab6cc7928f6bf1f88ed4))
+- 🚀 新增 protable 打印、列对齐方式功能 ([c22879e](https://gitee.com/laramie/Geeker-Admin/commit/c22879e7e80ff9ef662c39daa25b11f5f17d17ca))
+- 🚀 新增 protbale 功能, 请查看详情 ([17f2bcd](https://gitee.com/laramie/Geeker-Admin/commit/17f2bcd67362365579ed8a572a3a9d17368ac64e))
+- 🚀 新增 SVG Icons ([977602c](https://gitee.com/laramie/Geeker-Admin/commit/977602c30b8997cb51426fe9498392edc249561d))
+- 🚀 新增 treeFilter 组件标题属性 ([20c755f](https://gitee.com/laramie/Geeker-Admin/commit/20c755f59f3ae2b0380e6549bb56bb22317d750e))
+- 🚀 新增 treeFilter data 参数 ([4280766](https://gitee.com/laramie/Geeker-Admin/commit/428076635d7a0e9f80109274d9523cf91aa5a10c))
+- 🚀 新增暗黑模式 ([215e499](https://gitee.com/laramie/Geeker-Admin/commit/215e499634b516234e653eac27a611d5f51ea6da))
+- 🚀 新增菜单搜索功能 ([4aa0eef](https://gitee.com/laramie/Geeker-Admin/commit/4aa0eefaf427a2aa1aebd2b78dc049ffa776e838))
+- 🚀 新增动态路由 ([551fefc](https://gitee.com/laramie/Geeker-Admin/commit/551fefc2e66b067d9e64d3b0cfbf47dfa1057d98))
+- 🚀 新增分栏布局 ([de37143](https://gitee.com/laramie/Geeker-Admin/commit/de37143e93c0cc5be2ff52466dce344ab9270f0d))
+- 🚀 新增功能 && 修复 bug(查看详情) ([1ab183f](https://gitee.com/laramie/Geeker-Admin/commit/1ab183f1551cb8beb77243c2953b0119409dd6a5))
+- 🚀 新增功能 && 修复 bug(查看详情) ([4c0bc5f](https://gitee.com/laramie/Geeker-Admin/commit/4c0bc5fd3c111e1cac636cad104c83ffb1168679))
+- 🚀 新增功能(查看详情) ([cbd8dc2](https://gitee.com/laramie/Geeker-Admin/commit/cbd8dc2387576f525c0e49f81d540fbad3cb5e81))
+- 🚀 新增横向、纵向、经典布局切换 ([1046de4](https://gitee.com/laramie/Geeker-Admin/commit/1046de4c7d5f805b10c5cea5325b063e3d6dd84f))
+- 🚀 新增界面配置功能 ([39ffc5e](https://gitee.com/laramie/Geeker-Admin/commit/39ffc5e9a77da3294055f23f8c87a4a44f3622f7))
+- 🚀 新增路由相关功能 ([9679eed](https://gitee.com/laramie/Geeker-Admin/commit/9679eed1edd0c1f08c17465f590d4ca0365985ee)), closes [#71](https://gitee.com/laramie/Geeker-Admin/issues/71) [#72](https://gitee.com/laramie/Geeker-Admin/issues/72) [#49](https://gitee.com/laramie/Geeker-Admin/issues/49)
+- 🚀 新增请求示例，参见 loginApi ([d49b227](https://gitee.com/laramie/Geeker-Admin/commit/d49b227762ae48c3ca08f0dec02a3667daac8532))
+- 🚀 新增图标选择组件 ([ce5e165](https://gitee.com/laramie/Geeker-Admin/commit/ce5e165aed842074a9f7ac66ea97290710b541ee))
+- 🚀 新增图片上传组件 ([c50c421](https://gitee.com/laramie/Geeker-Admin/commit/c50c421bc3c5f7af68184cda88262c6fb1bd07e0))
+- 🚀 新增图片上传组件属性 ([d7670ed](https://gitee.com/laramie/Geeker-Admin/commit/d7670ed94608c5410f3102d7b9427d8d856204b1))
+- 🚀 新增系统管理模块 ([23748e1](https://gitee.com/laramie/Geeker-Admin/commit/23748e185e80e3b774b42114427934228a57d3aa))
+- 🚀 新增消息通知 ([66836b6](https://gitee.com/laramie/Geeker-Admin/commit/66836b69781ccc55402a3887d091149885864442))
+- 🚀 新增页面刷新功能 ([5223a41](https://gitee.com/laramie/Geeker-Admin/commit/5223a416d17568d5b2cae7b16b637e0f39134223))
+- 🚀 新增引导页 ([4fb6fb3](https://gitee.com/laramie/Geeker-Admin/commit/4fb6fb3a3eb34f82576e2378c311ff580f65226d))
+- 🚀 新增组件参数配置文档 ([0e11fc5](https://gitee.com/laramie/Geeker-Admin/commit/0e11fc59175d5d74730c3cb1fa2579effcca6e48))
+- 🚀 修改 keepAlive 逻辑 ([168ca13](https://gitee.com/laramie/Geeker-Admin/commit/168ca13e796c8cc366caa3d6e05090acdaefef75))
+- 🚀 修改 pinia 持久化插件 ([a7691ae](https://gitee.com/laramie/Geeker-Admin/commit/a7691aea614a035c4d381838149e08ad8477e49f))
+- 🚀 优化代码注释 && 升级 element 到 2.2.6 ([b84512b](https://gitee.com/laramie/Geeker-Admin/commit/b84512b3b102b00faa2f9241a32f5fbe27da4307))
+- 🚀 优化注释 && 代码细节问题 ([9d0ffa5](https://gitee.com/laramie/Geeker-Admin/commit/9d0ffa5ddecc4c73bec51208b05a6d44b1523b1f))
+- 🚀 预定义主题颜色 ([8219178](https://gitee.com/laramie/Geeker-Admin/commit/82191789bcf6d21c623aa61c5a64e502cea44c2c))
+- 🚀 增加 SearchForm 属性透传 ([eadb89b](https://gitee.com/laramie/Geeker-Admin/commit/eadb89b687596980a82401f44c53430081078d04))
+- 🚀 增加表格 treeFilter、更新整体布局样式 ([719b78f](https://gitee.com/laramie/Geeker-Admin/commit/719b78f317589b983bc4b852b3bfd63a60d42a46))
+- 🚀 增加布局方式切换，样式已完成 ([5745b93](https://gitee.com/laramie/Geeker-Admin/commit/5745b93a6cc00519c1a02977b8c0437502d867e6))
+- 🚀 增加分类筛选器 ([c95a1c0](https://gitee.com/laramie/Geeker-Admin/commit/c95a1c054ee9eacae470bcaae7574d5c989b86a2))
+- 🚀 增加全局错误拦截 && 修改细节问题 请查看详情 ([0496184](https://gitee.com/laramie/Geeker-Admin/commit/04961847eb7df004d1e9f562e78ea3d5f851ea49))
 
 ### Bug Fixes
 
-* **projects:** 设置tab标题导致meta属性丢失 ([efcfa57](https://github.com/honghuangdc/soybean-admin/commit/efcfa576d52a7eab644f3b4c65af153442887fab))
-* **projects:** 修复顶部菜单的位置失效问题 ([4ee0d94](https://github.com/honghuangdc/soybean-admin/commit/4ee0d94f1bde83c788fc0dcb084402359c04fb1b))
+- 🧩 菜单搜索过滤掉 isHide 为 true 的菜单 ([c6bab35](https://gitee.com/laramie/Geeker-Admin/commit/c6bab356f0cde7e3dc6f69dfac115239c2453776))
+- 🧩 解决 useTable 查询参数 bug ([a86e408](https://gitee.com/laramie/Geeker-Admin/commit/a86e4089b6da8ab6a55bc84e069d665c06471676))
+- 🧩 去除登陆页默认账号 ([3dda3fe](https://gitee.com/laramie/Geeker-Admin/commit/3dda3fee3fef38fdafcfdf3b1bf16e73033c6fe0))
+- 🧩 删除 protable 组件 image 配置属性 ([d699fe7](https://gitee.com/laramie/Geeker-Admin/commit/d699fe7bd55eaaccfad9b94105c1b43ae64d1c34))
+- 🧩 修复 国际化 产生的 bug ([ec4f74a](https://gitee.com/laramie/Geeker-Admin/commit/ec4f74ae654e7287fc08bb31fa3ee3d2c76164eb))
+- 🧩 修复 axios 请求超时未拦截错误 ([856468e](https://gitee.com/laramie/Geeker-Admin/commit/856468e84f8356d35c25097f3115dfe3d496914c))
+- 🧩 修复 bug ([3714abd](https://gitee.com/laramie/Geeker-Admin/commit/3714abdc4826034791ccb3fc8249d946ec3a4e16))
+- 🧩 修复 Pro-Tabel 列设置 bug ([a3b86a0](https://gitee.com/laramie/Geeker-Admin/commit/a3b86a06a6d9cd4b6f7ac6e108727a0b4852e9a0))
+- 🧩 修复 pro-table 格式报错问题 ([2ef11fd](https://gitee.com/laramie/Geeker-Admin/commit/2ef11fda6d373c3214df801ae789cafc1a033dcb))
+- 🧩 修复布局样式 bug ([2f1cd64](https://gitee.com/laramie/Geeker-Admin/commit/2f1cd6442f359909301e3d95b0ed4dc9d2dbe7c6))
+- 🧩 修复打包错误 ([243ebfc](https://gitee.com/laramie/Geeker-Admin/commit/243ebfc5280ddc013056c6708b44df35fe18f613))
+- 🧩 修复打包失败 ([31698fe](https://gitee.com/laramie/Geeker-Admin/commit/31698fea6478d60343a9ad49ae0fc6db7a42c184))
+- 🧩 修复打包失败问题 ([1778651](https://gitee.com/laramie/Geeker-Admin/commit/1778651781a1bb8bfe4ea61dafb9b48773fef5d7))
+- 🧩 修复分栏布局 bug ([113274a](https://gitee.com/laramie/Geeker-Admin/commit/113274a87e2dacf694648f3a304c7ac37e2262d0))
+- 🧩 修复经典布局展示 bug ([b95e237](https://gitee.com/laramie/Geeker-Admin/commit/b95e2376d06c6a6a35f72743e3fe8c1569fda008))
+- 🧩 修复路由跳转两次不能携带参数问题 ([8b583f3](https://gitee.com/laramie/Geeker-Admin/commit/8b583f3d5f05b77ec2a35082557bae431441a586))
+- 🧩 修复请求 header 参数丢失 bug ([3598dbc](https://gitee.com/laramie/Geeker-Admin/commit/3598dbc2a83aaacf9dada4e2c38a3ca27cbe4cfd))
+- 🧩 修复上传组件细节问题 ([8528358](https://gitee.com/laramie/Geeker-Admin/commit/8528358925ea809cf52f55015355345e87607351))
+- 🧩 修复 BUG ([4bf2988](https://gitee.com/laramie/Geeker-Admin/commit/4bf29881dd41fad256f1beb5affcd5ba6599e17d))
+- 🧩 修复 BUG ([c93aaf7](https://gitee.com/laramie/Geeker-Admin/commit/c93aaf700112decd158e9a5a9c1f83eff1773e91))
+- 🧩 修复 loading 请求 bug ([a3270ec](https://gitee.com/laramie/Geeker-Admin/commit/a3270ecfa2e7c2484729ae6fd599febcc4f7be6b))
+- 🧩 修复 vercel 打包失败 ([e63dee1](https://gitee.com/laramie/Geeker-Admin/commit/e63dee1f9653f4f95d0330275c5f5e8b530564c9))
+- 🧩 修改 Pro-Table 表头渲染方式 ([aa57294](https://gitee.com/laramie/Geeker-Admin/commit/aa5729489942eaa6dca9928b70153af2de753a9c))
+- 🧩 修改 useTable 存在的 bug ([5bb55b3](https://gitee.com/laramie/Geeker-Admin/commit/5bb55b32c0b46bbf55fa0d49efe3a15d0b1673a4))
+- 🧩 修改 useTable 钩子中的 bug ([675aed8](https://gitee.com/laramie/Geeker-Admin/commit/675aed806e62c236b40bc933402c86085289df4e))
+- 🧩 修改 useTable 携带默认查询参数 bug ([ee585b2](https://gitee.com/laramie/Geeker-Admin/commit/ee585b29f3129b7143a10947fdd3184b197ad883))
+- 🧩 修改代码细节 && 优化注释 ([d86cb1f](https://gitee.com/laramie/Geeker-Admin/commit/d86cb1feb32e11a29e1c2bee54ea788c6c828d75))
+- 🧩 修改当菜单设置 isHide=true 时面包屑报错 ([66885c5](https://gitee.com/laramie/Geeker-Admin/commit/66885c5cc15c10ccadcd49a7bee27a821663e8a7))
+- 🧩 修改文件导出失败 bug ([208e720](https://gitee.com/laramie/Geeker-Admin/commit/208e720688969d2bc0fa0a6cc2bae3e3b991c806))
+- 🧩 修改 BUG ([540048a](https://gitee.com/laramie/Geeker-Admin/commit/540048a09be9b0df5443e275f38f43c80dcde51f))
+- 🧩 fix use pinia bug ([609aa69](https://gitee.com/laramie/Geeker-Admin/commit/609aa69aa9b3e0bb4e667ee7f76ab44051c2d2e8))
+- 修复登录后白屏 ([f986c5c](https://gitee.com/laramie/Geeker-Admin/commit/f986c5c44fc1df8d5c6a90e90239c06928e2f4a1))
+- **el-table:** 🧩 修复 el-table 在 safari 浏览器错乱 ([b776a48](https://gitee.com/laramie/Geeker-Admin/commit/b776a483636547c7cee723846ec33b2842550d13))
 
-### [0.9.5](https://github.com/honghuangdc/soybean-admin/compare/v0.9.4...v0.9.5) (2022-06-06)
-
+### 0.0.6 (2022-08-22)
 
 ### Features
 
-* **projects:** 支持同一路由根据不同query和hash同时显示不同Tab ([4122685](https://github.com/honghuangdc/soybean-admin/commit/4122685803f8a0a485682d16cec74e27945adc47)), closes [#64](https://github.com/honghuangdc/soybean-admin/issues/64)
-* **projects:** 动态路由根路由重定向只需取决于后端返回的路由首页 ([434ab1c](https://github.com/honghuangdc/soybean-admin/commit/434ab1c560b260f8a19895405eb1d3c3313052d7))
-* **projects:** 补充更多的ECharts示例 ([c776249](https://github.com/honghuangdc/soybean-admin/commit/c7762490def77695bedf179ffc63e3e95d15e14d))
-* **projects:** 添加百度地图、升级依赖 ([39854a4](https://github.com/honghuangdc/soybean-admin/commit/39854a492b9cce71e0c7ed52af9985cb4abd6a97))
-* **projects:** 添加插件页面：图表 ([0a46ea0](https://github.com/honghuangdc/soybean-admin/commit/0a46ea08443f6b879434e925d440cf07e9494fcb))
-* **projects:** 添加自动跟随系统主题设置 ([ba07b69](https://github.com/honghuangdc/soybean-admin/commit/ba07b695dd9dc5d3f8ebf57d0f2e69d624994962))
-* **projects:** 添加antv g2图表示例 ([44b022a](https://github.com/honghuangdc/soybean-admin/commit/44b022aefd7dbb4c34886814cf04767450dec026))
-* **projects:** 引入echarts替换antvG2plot ([e7ad086](https://github.com/honghuangdc/soybean-admin/commit/e7ad08685e8ac52a8906fc94e656192275f9764c))
-* **route:** 路由meta新增activeMenu属性 ([ebd16a4](https://github.com/honghuangdc/soybean-admin/commit/ebd16a4d1ab1a95a27838a2d4f20cc1d1e7309ae))
-
+- 🚀 二次封装 wangEditor 富文本编辑器(50%) ([4f8e266](https://gitee.com/laramie/Geeker-Admin/commit/4f8e266b7dd25a7df18d302e88e14454bfa3816b))
+- 🚀 请求全局 loading 更改为可配置 ([a75d62f](https://gitee.com/laramie/Geeker-Admin/commit/a75d62f627195ac420cf24ad7f51245b2e5bf04e))
+- 🚀 升级 element-plus 到 2.25 ([e98c035](https://gitee.com/laramie/Geeker-Admin/commit/e98c035caa6d1ab04319673e0db65837c6887126))
+- 🚀 添加 wangEditor 组件 ([d6d2fa7](https://gitee.com/laramie/Geeker-Admin/commit/d6d2fa7d27887bb4a9e40e9d7037d4621812e16a))
+- 🚀 完成 wangEditor 富文本二次封装 ([7362bfb](https://gitee.com/laramie/Geeker-Admin/commit/7362bfbff19224045e3bb20fa939a78c556cc805))
+- 🚀 新增 主题色、灰色模式、色弱模式 配置 ([7821157](https://gitee.com/laramie/Geeker-Admin/commit/7821157059ed9c21d2844f75049f8fa999b19944))
+- 🚀 新增 pro-form ([3ab5a5b](https://gitee.com/laramie/Geeker-Admin/commit/3ab5a5b4f63fca227944ab6cc7928f6bf1f88ed4))
+- 🚀 新增 protbale 功能, 请查看详情 ([17f2bcd](https://gitee.com/laramie/Geeker-Admin/commit/17f2bcd67362365579ed8a572a3a9d17368ac64e))
+- 🚀 新增 SVG Icons ([977602c](https://gitee.com/laramie/Geeker-Admin/commit/977602c30b8997cb51426fe9498392edc249561d))
+- 🚀 新增 treeFilter data 参数 ([4280766](https://gitee.com/laramie/Geeker-Admin/commit/428076635d7a0e9f80109274d9523cf91aa5a10c))
+- 🚀 新增暗黑模式 ([215e499](https://gitee.com/laramie/Geeker-Admin/commit/215e499634b516234e653eac27a611d5f51ea6da))
+- 🚀 新增菜单搜索功能 ([4aa0eef](https://gitee.com/laramie/Geeker-Admin/commit/4aa0eefaf427a2aa1aebd2b78dc049ffa776e838))
+- 🚀 新增界面配置功能 ([39ffc5e](https://gitee.com/laramie/Geeker-Admin/commit/39ffc5e9a77da3294055f23f8c87a4a44f3622f7))
+- 🚀 新增请求示例，参见 loginApi ([d49b227](https://gitee.com/laramie/Geeker-Admin/commit/d49b227762ae48c3ca08f0dec02a3667daac8532))
+- 🚀 新增图标选择组件 ([ce5e165](https://gitee.com/laramie/Geeker-Admin/commit/ce5e165aed842074a9f7ac66ea97290710b541ee))
+- 🚀 新增图片上传组件 ([c50c421](https://gitee.com/laramie/Geeker-Admin/commit/c50c421bc3c5f7af68184cda88262c6fb1bd07e0))
+- 🚀 新增图片上传组件属性 ([d7670ed](https://gitee.com/laramie/Geeker-Admin/commit/d7670ed94608c5410f3102d7b9427d8d856204b1))
+- 🚀 新增引导页 ([4fb6fb3](https://gitee.com/laramie/Geeker-Admin/commit/4fb6fb3a3eb34f82576e2378c311ff580f65226d))
+- 🚀 新增组件参数配置文档 ([0e11fc5](https://gitee.com/laramie/Geeker-Admin/commit/0e11fc59175d5d74730c3cb1fa2579effcca6e48))
+- 🚀 修改 pinia 持久化插件 ([a7691ae](https://gitee.com/laramie/Geeker-Admin/commit/a7691aea614a035c4d381838149e08ad8477e49f))
+- 🚀 优化代码注释 && 升级 element 到 2.2.6 ([b84512b](https://gitee.com/laramie/Geeker-Admin/commit/b84512b3b102b00faa2f9241a32f5fbe27da4307))
+- 🚀 优化注释 && 代码细节问题 ([9d0ffa5](https://gitee.com/laramie/Geeker-Admin/commit/9d0ffa5ddecc4c73bec51208b05a6d44b1523b1f))
+- 🚀 预定义主题颜色 ([8219178](https://gitee.com/laramie/Geeker-Admin/commit/82191789bcf6d21c623aa61c5a64e502cea44c2c))
+- 🚀 增加 SearchForm 属性透传 ([eadb89b](https://gitee.com/laramie/Geeker-Admin/commit/eadb89b687596980a82401f44c53430081078d04))
+- 🚀 增加表格 treeFilter、更新整体布局样式 ([719b78f](https://gitee.com/laramie/Geeker-Admin/commit/719b78f317589b983bc4b852b3bfd63a60d42a46))
 
 ### Bug Fixes
 
-* **projects:** 修复@antv/g2生产环境报错 ([4558c24](https://github.com/honghuangdc/soybean-admin/commit/4558c24d1c1e1faa3326650fc16e6baf384509ac))
-* **projects:** 修复插件不存在的错误提示 ([7165282](https://github.com/honghuangdc/soybean-admin/commit/716528206e9f63e873607d0afd59d83f6984e3fe))
-* **projects:** 修复权限切换路由数据未更新的问题 ([60f9125](https://github.com/honghuangdc/soybean-admin/commit/60f912508b0e685957fb22ef0ed1f83272847263))
-* **projects:** 修复页面切换时导致的溢出滚动条 ([e023306](https://github.com/honghuangdc/soybean-admin/commit/e0233061d3bca236b4c4bb462ce00f7ca186b9fa))
-* **route:** 当为左侧混合菜单时activeMenu无效情况 ([3e4f9e2](https://github.com/honghuangdc/soybean-admin/commit/3e4f9e282442073447c5c24c33d65bc6130978ee))
+- 🧩 解决 useTable 查询参数 bug ([a86e408](https://gitee.com/laramie/Geeker-Admin/commit/a86e4089b6da8ab6a55bc84e069d665c06471676))
+- 🧩 去除登陆页默认账号 ([3dda3fe](https://gitee.com/laramie/Geeker-Admin/commit/3dda3fee3fef38fdafcfdf3b1bf16e73033c6fe0))
+- 🧩 删除 protable 组件 image 配置属性 ([d699fe7](https://gitee.com/laramie/Geeker-Admin/commit/d699fe7bd55eaaccfad9b94105c1b43ae64d1c34))
+- 🧩 修复 国际化 产生的 bug ([ec4f74a](https://gitee.com/laramie/Geeker-Admin/commit/ec4f74ae654e7287fc08bb31fa3ee3d2c76164eb))
+- 🧩 修复 axios 请求超时未拦截错误 ([856468e](https://gitee.com/laramie/Geeker-Admin/commit/856468e84f8356d35c25097f3115dfe3d496914c))
+- 🧩 修复 Pro-Tabel 列设置 bug ([a3b86a0](https://gitee.com/laramie/Geeker-Admin/commit/a3b86a06a6d9cd4b6f7ac6e108727a0b4852e9a0))
+- 🧩 修复 pro-table 格式报错问题 ([2ef11fd](https://gitee.com/laramie/Geeker-Admin/commit/2ef11fda6d373c3214df801ae789cafc1a033dcb))
+- 🧩 修复打包失败问题 ([1778651](https://gitee.com/laramie/Geeker-Admin/commit/1778651781a1bb8bfe4ea61dafb9b48773fef5d7))
+- 🧩 修复路由跳转两次不能携带参数问题 ([8b583f3](https://gitee.com/laramie/Geeker-Admin/commit/8b583f3d5f05b77ec2a35082557bae431441a586))
+- 🧩 修复请求 header 参数丢失 bug ([3598dbc](https://gitee.com/laramie/Geeker-Admin/commit/3598dbc2a83aaacf9dada4e2c38a3ca27cbe4cfd))
+- 🧩 修复上传组件细节问题 ([8528358](https://gitee.com/laramie/Geeker-Admin/commit/8528358925ea809cf52f55015355345e87607351))
+- 🧩 修复 loading 请求 bug ([a3270ec](https://gitee.com/laramie/Geeker-Admin/commit/a3270ecfa2e7c2484729ae6fd599febcc4f7be6b))
+- 🧩 修改 Pro-Table 表头渲染方式 ([aa57294](https://gitee.com/laramie/Geeker-Admin/commit/aa5729489942eaa6dca9928b70153af2de753a9c))
+- 🧩 修改 useTable 存在的 bug ([5bb55b3](https://gitee.com/laramie/Geeker-Admin/commit/5bb55b32c0b46bbf55fa0d49efe3a15d0b1673a4))
+- 🧩 修改 useTable 钩子中的 bug ([675aed8](https://gitee.com/laramie/Geeker-Admin/commit/675aed806e62c236b40bc933402c86085289df4e))
+- 🧩 修改 useTable 携带默认查询参数 bug ([ee585b2](https://gitee.com/laramie/Geeker-Admin/commit/ee585b29f3129b7143a10947fdd3184b197ad883))
+- 🧩 修改代码细节 && 优化注释 ([d86cb1f](https://gitee.com/laramie/Geeker-Admin/commit/d86cb1feb32e11a29e1c2bee54ea788c6c828d75))
+- 🧩 修改文件导出失败 bug ([208e720](https://gitee.com/laramie/Geeker-Admin/commit/208e720688969d2bc0fa0a6cc2bae3e3b991c806))
+- 🧩 fix use pinia bug ([609aa69](https://gitee.com/laramie/Geeker-Admin/commit/609aa69aa9b3e0bb4e667ee7f76ab44051c2d2e8))
+- 修复登录后白屏 ([f986c5c](https://gitee.com/laramie/Geeker-Admin/commit/f986c5c44fc1df8d5c6a90e90239c06928e2f4a1))
 
-### [0.9.4](https://github.com/honghuangdc/soybean-admin/compare/v0.9.3...v0.9.4) (2022-04-28)
-
+### [0.0.5](https://github.com/HalseySpicy/Geeker-Admin/compare/v0.0.4...v0.0.5) (2022-07-21)
 
 ### Features
 
-* **layouts:** 添加侧边栏/头部的反转模式来增加对比度 ([861c8b9](https://github.com/honghuangdc/soybean-admin/commit/861c8b9852e0097a1f6b79ac2c10d19add123bde))
-* **layouts:** 添加侧边栏/头部的反转模式来增加对比度 ([3c8dd77](https://github.com/honghuangdc/soybean-admin/commit/3c8dd772f89d2b656a42c4f7164e581acdb2b1a5))
-* **projects:** 插件方式按需引入naiveUI ([6bed9ea](https://github.com/honghuangdc/soybean-admin/commit/6bed9ead38af6d58f6cd9e520db848ae5cbfa4db))
-* **projects:** 登录页背景图片位置适配移动端 ([24010d0](https://github.com/honghuangdc/soybean-admin/commit/24010d05fb1ff51cb5e5d94ffe310206a9638711))
-* **projects:** 登录页面适配移动端 ([ec0776e](https://github.com/honghuangdc/soybean-admin/commit/ec0776e268cd3d1031e9ecd794abce271a675793))
-* **projects:** 权限完善及权限示例页面 ([807448a](https://github.com/honghuangdc/soybean-admin/commit/807448aec5b041535fe4fbac90eca1138b2f439c))
-* **projects:** 添加请求适配器的请求示例 ([bed4292](https://github.com/honghuangdc/soybean-admin/commit/bed4292ed380e77ac428ab057abc42eceb72af53))
-* **projects:** 新增静态路由 ([ca2dfa6](https://github.com/honghuangdc/soybean-admin/commit/ca2dfa6185aa7a4e58184bcfef2a1246a52f88fd))
-* **projects:** 引入unocss替换windicss ([c9d3e5a](https://github.com/honghuangdc/soybean-admin/commit/c9d3e5a3fdf59179dcfc122ab8369c492ea7832e))
-* **projects:** HTML lang 修改为 zh-cmn-Hans ([b9c5c34](https://github.com/honghuangdc/soybean-admin/commit/b9c5c349790b1e83a7acd1f2c53a86c9221944ff))
-* **projects:** HTML lang 修改为 zh-cmn-Hans ([dbeb595](https://github.com/honghuangdc/soybean-admin/commit/dbeb595c0b9fc11e7d166a7684af37cc971f1a11))
-* **projects:** mock添加权限过滤 ([7f4350a](https://github.com/honghuangdc/soybean-admin/commit/7f4350aeb673dab59192584177a897aacebe4b28))
-
+- 🚀 新增请求示例，参见 loginApi ([d49b227](https://github.com/HalseySpicy/Geeker-Admin/commit/d49b227762ae48c3ca08f0dec02a3667daac8532))
 
 ### Bug Fixes
 
-* **projects:** 去除从环境文件引入端口号导致的错误 ([2d6d179](https://github.com/honghuangdc/soybean-admin/commit/2d6d179d669ea71cca3fe97ac840e4856bff4051))
-* **projects:** 全局搜索弹窗弹出时动画闪屏问题 ([bb1bbf2](https://github.com/honghuangdc/soybean-admin/commit/bb1bbf272438f4ed440735118c6a9ec04c7d109f))
-* **projects:** 添加.npmrc修复无法获取自动引入的全局组件声明类型 ([e8488e4](https://github.com/honghuangdc/soybean-admin/commit/e8488e4d5237e5e03ec07ff07d03115389d5b1ef))
-* **projects:** 添加获取路由组件文件未找到时的错误提示 ([219f87f](https://github.com/honghuangdc/soybean-admin/commit/219f87f46758f328f26697f66d8583f49c0d41de))
-* **projects:** 修复获取vite环境变量的方式 ([46e1ae7](https://github.com/honghuangdc/soybean-admin/commit/46e1ae7825b2b204ce3cdd63b3c64f39bff096d0))
-* **projects:** 修复路由守卫的动态路由逻辑 ([e6c26fc](https://github.com/honghuangdc/soybean-admin/commit/e6c26fcb4ae085f9fd7d7eb9183ddba020d0b5da))
-* **projects:** 修复样式 ([e899914](https://github.com/honghuangdc/soybean-admin/commit/e8999144266761b3b701442975c3c00251240d53))
-* **projects:** 修复在新版vite下环境变量获取不到的问题 ([3fb13ca](https://github.com/honghuangdc/soybean-admin/commit/3fb13ca9e710549d2ddeb774fe08fabd27d5ae11))
-* **projects:** 修复vite alias ([cd7ca8f](https://github.com/honghuangdc/soybean-admin/commit/cd7ca8f4c77ac8c753b753ba698a9573d6c37bf9))
+- 🧩 解决 useTable 查询参数 bug ([a86e408](https://github.com/HalseySpicy/Geeker-Admin/commit/a86e4089b6da8ab6a55bc84e069d665c06471676))
+- 🧩 修复 axios 请求超时未拦截错误 ([856468e](https://github.com/HalseySpicy/Geeker-Admin/commit/856468e84f8356d35c25097f3115dfe3d496914c))
+- 🧩 修复请求 header 参数丢失 bug ([3598dbc](https://github.com/HalseySpicy/Geeker-Admin/commit/3598dbc2a83aaacf9dada4e2c38a3ca27cbe4cfd))
 
-### [0.9.3](https://github.com/honghuangdc/soybean-admin/compare/v0.9.2...v0.9.3) (2022-03-12)
-
+### [0.0.4](https://github.com/HalseySpicy/Geeker-Admin/compare/v0.0.3...v0.0.4) (2022-07-12)
 
 ### Features
 
-* **components:** svgIcon,添加type,调整size方案 ([ce4e039](https://github.com/honghuangdc/soybean-admin/commit/ce4e039f48001b47a2933e807f5410a9573781b9))
-* **projects:** 引入soybean-admin-tab、去除vite-plugin-svg-icons，用unplugin-icons实现自定义svg的iconify写法、代码优化 ([a1a57a1](https://github.com/honghuangdc/soybean-admin/commit/a1a57a185ce5004888ca4e1611973665ee46980b))
-* **projects:** 新增子菜单图标和多页签图标 ([f5c56c3](https://github.com/honghuangdc/soybean-admin/commit/f5c56c355ce41157b20ed0a10272a28e6d8b2b49))
-* **projects:** 新增自定义svg图标动态渲染 ([f83c7b5](https://github.com/honghuangdc/soybean-admin/commit/f83c7b59b893ab6e210188e92c4177b3d01392ce))
-* **projects:** 添加naiveUI按需引入 ([a810ef8](https://github.com/honghuangdc/soybean-admin/commit/a810ef85b19e4b74f3ddb3c69d17c050e556ee90))
-* **projects:** 添加SvgIcon,配置vite plugin ([378d55a](https://github.com/honghuangdc/soybean-admin/commit/378d55ac0e11cdf115ce3cb8e281d60f7fc4ff7a))
-* **projects:** 添加全局组件自动引入注册 ([f5a043b](https://github.com/honghuangdc/soybean-admin/commit/f5a043b11a403927828ae922bdae411a4e5ae3c6))
-* **projects:** 添加网络代理 ([094dca9](https://github.com/honghuangdc/soybean-admin/commit/094dca961f608404352ac360f44496423d88dae8))
-* **projects:** 重构项目的TS类型架构，去除interface文件夹 ([8191490](https://github.com/honghuangdc/soybean-admin/commit/8191490f39fc011096edd77c3156eb4fe33d4e1c))
-
+- 🚀 新增 主题色、灰色模式、色弱模式 配置 ([7821157](https://github.com/HalseySpicy/Geeker-Admin/commit/7821157059ed9c21d2844f75049f8fa999b19944))
+- 🚀 新增 pro-form ([3ab5a5b](https://github.com/HalseySpicy/Geeker-Admin/commit/3ab5a5b4f63fca227944ab6cc7928f6bf1f88ed4))
+- 🚀 新增菜单搜索功能 ([4aa0eef](https://github.com/HalseySpicy/Geeker-Admin/commit/4aa0eefaf427a2aa1aebd2b78dc049ffa776e838))
+- 🚀 新增界面配置功能 ([39ffc5e](https://github.com/HalseySpicy/Geeker-Admin/commit/39ffc5e9a77da3294055f23f8c87a4a44f3622f7))
+- 🚀 预定义主题颜色 ([8219178](https://github.com/HalseySpicy/Geeker-Admin/commit/82191789bcf6d21c623aa61c5a64e502cea44c2c))
+- 🚀 增加 SearchForm 属性透传 ([eadb89b](https://github.com/HalseySpicy/Geeker-Admin/commit/eadb89b687596980a82401f44c53430081078d04))
 
 ### Bug Fixes
 
-* **components:** 修复组件LoadingEmptyWrapper适应暗黑模式 ([811b15e](https://github.com/honghuangdc/soybean-admin/commit/811b15e672c9d69e9c5789eb11ab2db7bd729f37))
-* **components:** 组件LoadingEmptyWrapper添加背景颜色动画过渡 ([7add5c2](https://github.com/honghuangdc/soybean-admin/commit/7add5c2edfcabadb77084179d464b849d880d5e6))
-* **projects:** 修复 BASE_URL 没有生效的问题 ([72d7dcf](https://github.com/honghuangdc/soybean-admin/commit/72d7dcfa5ee8dc6f3601f4d65c6aca9ad2cc5d5c))
-* **projects:** 修复页面切换动画开关不生效 ([9d4ed61](https://github.com/honghuangdc/soybean-admin/commit/9d4ed617fb80095e521d8063718283459711118f))
-* **projects:** 修复页面切换动画无变化 ([c4546bd](https://github.com/honghuangdc/soybean-admin/commit/c4546bdfa303f1e89c0d7ddd46b54e4ec5170096))
+- 🧩 修复 pro-table 格式报错问题 ([2ef11fd](https://github.com/HalseySpicy/Geeker-Admin/commit/2ef11fda6d373c3214df801ae789cafc1a033dcb))
+- 🧩 修改文件导出失败 bug ([208e720](https://github.com/HalseySpicy/Geeker-Admin/commit/208e720688969d2bc0fa0a6cc2bae3e3b991c806))
+- 🧩 fix use pinia bug ([609aa69](https://github.com/HalseySpicy/Geeker-Admin/commit/609aa69aa9b3e0bb4e667ee7f76ab44051c2d2e8))
 
-### [0.9.2](https://github.com/honghuangdc/soybean-admin/compare/v0.9.1...v0.9.2) (2022-02-11)
+### [0.0.2](https://github.com/HalseySpicy/Geeker-Admin/compare/v0.0.3...v0.0.2) (2022-06-29)
 
+### 0.0.2 (2022-06-20)
 
 ### Features
 
-* **projects:** 迁移全局搜索菜单功能 ([554d7fd](https://github.com/honghuangdc/soybean-admin/commit/554d7fd6114b9cf6df571c3cb02f4cb0cc6dcfd4))
-
+- 🚀 请求全局 loading 更改为可配置 ([a75d62f](https://github.com/HalseySpicy/Geeker-Admin/commit/a75d62f627195ac420cf24ad7f51245b2e5bf04e))
+- 🚀 升级 element-plus 到 2.2.5 ([e98c035](https://github.com/HalseySpicy/Geeker-Admin/commit/e98c035caa6d1ab04319673e0db65837c6887126))
+- 🚀 新增暗黑模式 ([215e499](https://github.com/HalseySpicy/Geeker-Admin/commit/215e499634b516234e653eac27a611d5f51ea6da))
+- 🚀 新增图标选择组件 ([ce5e165](https://github.com/HalseySpicy/Geeker-Admin/commit/ce5e165aed842074a9f7ac66ea97290710b541ee))
+- 🚀 修改 pinia 持久化插件 ([a7691ae](https://github.com/HalseySpicy/Geeker-Admin/commit/a7691aea614a035c4d381838149e08ad8477e49f))
+- 🚀 优化代码注释 && 升级 element 到 2.2.6 ([b84512b](https://github.com/HalseySpicy/Geeker-Admin/commit/b84512b3b102b00faa2f9241a32f5fbe27da4307))
 
 ### Bug Fixes
 
-* **components:** 修复Tab在移动端设备无法点击的问题 ([2c9660f](https://github.com/honghuangdc/soybean-admin/commit/2c9660fdbf9a84e980db0aff5cd0aed0f75963ca))
-* **projects:** 修复分析页和工作台的布局问题 ([e93b94c](https://github.com/honghuangdc/soybean-admin/commit/e93b94cb2435a130bb1d94a703328af342cd24c9))
-* **projects:** 修复项目配置拷贝功能 ([a7a269d](https://github.com/honghuangdc/soybean-admin/commit/a7a269d6a61ccd25883e6bb69639d39e0260587d))
-* **projects:** vite配置修复 ([facc00e](https://github.com/honghuangdc/soybean-admin/commit/facc00e8b4998dc8bd338e3b63a652b4bfe2ed3e))
-
-### [0.9.1](https://github.com/honghuangdc/soybean-admin/compare/v0.1.3...v0.9.1) (2022-01-23)
-
-
-### Features
-
-* **projects:** 新版重构完成 ([68b4230](https://github.com/honghuangdc/soybean-admin/commit/68b42304d5964246775c7a82dcc1406c5db7a4e4))
-
-### [0.1.3](https://github.com/honghuangdc/soybean-admin/compare/v0.1.2...v0.1.3) (2022-01-23)
-
-
-### Bug Fixes
-
-* **projects:** 修复未登录时会调用获取用户路由的接口 ([21bab1f](https://github.com/honghuangdc/soybean-admin/commit/21bab1f7c30611fe59dc91c7a73050ccb49a4658))
-* **projects:** 修复路由守卫的动态路由逻辑 ([b61b0ce](https://github.com/honghuangdc/soybean-admin/commit/b61b0ce25fdcbaf29ca64cbcc467e12faa947625))
-
-### [0.1.2](https://github.com/honghuangdc/soybean-admin/compare/v0.1.1...v0.1.2) (2022-01-21)
-
-
-### Features
-
-* **projects:** 添加缓存主题色 ([3709297](https://github.com/honghuangdc/soybean-admin/commit/37092974d37b2e661d4cbf9d27c89b5e99119cd7))
-* **projects:** 添加页面缓存、记录在tab中的缓存页面的滚动条位置 ([1d63a83](https://github.com/honghuangdc/soybean-admin/commit/1d63a838226df4f48e7f2a15b5a05d4b496d3c69))
-
-### [0.1.1](https://github.com/honghuangdc/soybean-admin/compare/v0.0.5...v0.1.1) (2022-01-20)
-
-
-### Features
-
-* **projects:** theme store完成 ([bf020a8](https://github.com/honghuangdc/soybean-admin/commit/bf020a82580e6b1fbda1cc1e0bd6176770434884))
-* **projects:** 主题配置抽屉: 迁移其他功能 ([6d132c5](https://github.com/honghuangdc/soybean-admin/commit/6d132c59770e925cfc61217dcefa5b4d937604df))
-* **projects:** 主题配置抽屉：迁移暗黑模式、布局模式、添加颜色选择面板 ([912bfdf](https://github.com/honghuangdc/soybean-admin/commit/912bfdf4390ab624d3f8e343be88e8c1cf7ab5b6))
-* **projects:** 创建自定义布局组件SoybeanLayout ([0653fb1](https://github.com/honghuangdc/soybean-admin/commit/0653fb144fe9d49f24ef4fe6e4a58de6de342b78))
-* **projects:** 初始化加载效果：应用主题颜色 ([035fa11](https://github.com/honghuangdc/soybean-admin/commit/035fa114c9fd638cf467e6a73a8e4c558f503deb))
-* **projects:** 图标选择器增加扩展树形 ([041012b](https://github.com/honghuangdc/soybean-admin/commit/041012b3ee04d960c1e38895839225613f7af377))
-* **projects:** 增加Icon选择器组件 ([9472b51](https://github.com/honghuangdc/soybean-admin/commit/9472b51811f419e9139de81c73f2c71d170700c2))
-* **projects:** 增加全局搜索菜单功能 ([b9ce691](https://github.com/honghuangdc/soybean-admin/commit/b9ce69130b12712013228326f883e2d973e4e46a))
-* **projects:** 增加项目文档外链 ([1901a0b](https://github.com/honghuangdc/soybean-admin/commit/1901a0bfb7bfa516dfda552675397ddec96b8d4b))
-* **projects:** 多级路由的所有子路由转换成二级路由 ([85b55bb](https://github.com/honghuangdc/soybean-admin/commit/85b55bb37a0a06e2645b96ed81aefe463127121a))
-* **projects:** 引入mockjs ([9bc682d](https://github.com/honghuangdc/soybean-admin/commit/9bc682dae878c084e38a0e2c9a4a2de171023c48))
-* **projects:** 新增BasicLayout布局 ([006467a](https://github.com/honghuangdc/soybean-admin/commit/006467a0626f427da3f516d90c15bf1e1eef0e55))
-* **projects:** 添加cryptojs，对本地缓存数据进行加密 ([7a0648d](https://github.com/honghuangdc/soybean-admin/commit/7a0648dba55a98f61f4d81696307d86c82a1d34d))
-* **projects:** 添加NaiveProvider组件 ([c804b21](https://github.com/honghuangdc/soybean-admin/commit/c804b21ceb92133c6ea7cc64c87521cc164e40ce))
-* **projects:** 添加侧边菜单 ([e25afe2](https://github.com/honghuangdc/soybean-admin/commit/e25afe2fadfe86b9330ee02190a4e40b8321714c))
-* **projects:** 添加头部折叠按钮 ([a090d39](https://github.com/honghuangdc/soybean-admin/commit/a090d398fc071e246b92d0da80883cf5cbedba0e))
-* **projects:** 添加常用组件、composables函数 ([230a50a](https://github.com/honghuangdc/soybean-admin/commit/230a50a4cf4d2ebb62b19d6324234243cf6b2f0d))
-* **projects:** 添加抽屉 ([10e4d81](https://github.com/honghuangdc/soybean-admin/commit/10e4d81bd6a0b35d8cfb4f7a1e981f8ef6ab87cc))
-* **projects:** 添加表格页面示例 ([51c744c](https://github.com/honghuangdc/soybean-admin/commit/51c744c8e2c8ed9691e92e35b6a88582f22c30d8))
-* **projects:** 添加路由跳转浏览器新标签 ([987cef3](https://github.com/honghuangdc/soybean-admin/commit/987cef336338987f2e6f0d5aba8f6d4602b297ca))
-* **projects:** 登录页面开始迁移 ([f5a36a0](https://github.com/honghuangdc/soybean-admin/commit/f5a36a05cb626ec62115283f1d2c534b2a787bdd))
-* **projects:** 细节完善 ([cc290ac](https://github.com/honghuangdc/soybean-admin/commit/cc290accc29282e9ba655356e2695b6ca4b23605))
-* **projects:** 细节完善、迁移页面 ([ce531ce](https://github.com/honghuangdc/soybean-admin/commit/ce531ce5dda0b4a1024aa6bd3d68835b59760d57))
-* **projects:** 菜单搜索增加大小写转换 ([2907868](https://github.com/honghuangdc/soybean-admin/commit/29078689b0652cf4ae852c93d8601a157579adcc))
-* **projects:** 请求拦截器添加刷新token ([839b82b](https://github.com/honghuangdc/soybean-admin/commit/839b82ba8b052b02e24bcfe6da54160609a4fd4b))
-* **projects:** 路由页面跳转权限完成 ([0d2a562](https://github.com/honghuangdc/soybean-admin/commit/0d2a5629e89c73a32d6c79f04b51543e1513e006))
-* **projects:** 迁移多页签 ([28efbdb](https://github.com/honghuangdc/soybean-admin/commit/28efbdbc70733d22011a0eee084d35711429d188))
-* **projects:** 迁移登录完成 ([b93b80c](https://github.com/honghuangdc/soybean-admin/commit/b93b80cb4b35268dfb6a09517a2494af24748dac))
-* **projects:** 集成naiveUI主题配置，将css vars添加至html ([2c19684](https://github.com/honghuangdc/soybean-admin/commit/2c196841bd8527d7acccefe6a7545e0a49d532f7))
-* **projects:** 面包屑 ([09c7658](https://github.com/honghuangdc/soybean-admin/commit/09c7658c21c7dda461dbb528e85b638b5a7dfacd))
-
-
-### Bug Fixes
-
-* **deps:** 降低vite版本 ([c9c5ca9](https://github.com/honghuangdc/soybean-admin/commit/c9c5ca9989eddb084f2706155473123c5dcfc334))
-* **projects:** 修复redirect-not-found子路由 ([5bfb819](https://github.com/honghuangdc/soybean-admin/commit/5bfb8199b463d9ca6430577b5c493c0b78967aa9))
-* **projects:** 修复vertical-mix布局、重构初始化的loading ([579e074](https://github.com/honghuangdc/soybean-admin/commit/579e07400e1b9a52934ed808a37c8579a41e8e74))
-* **projects:** 修复网络请求错误空信息的提示 ([ff9216b](https://github.com/honghuangdc/soybean-admin/commit/ff9216b621aaef0a8203386fa1c3ca5477a2edea))
-* **projects:** 修复面包屑数据 ([28b5d22](https://github.com/honghuangdc/soybean-admin/commit/28b5d224010a28669ad3a1919fc49f6e2dc808cd))
-* **projects:** 去除Layout组件冗余代码 ([0e783bc](https://github.com/honghuangdc/soybean-admin/commit/0e783bcf7be0b3a083fe950adfb0afc72b510f97))
-* **projects:** 请求相关细节修复 ([2ad1ad3](https://github.com/honghuangdc/soybean-admin/commit/2ad1ad32b8410d84902a33d825032c282ca6df86))
+- 🧩 去除登陆页默认账号 ([3dda3fe](https://github.com/HalseySpicy/Geeker-Admin/commit/3dda3fee3fef38fdafcfdf3b1bf16e73033c6fe0))
+- 🧩 修复 Pro-Table 列设置 bug ([a3b86a0](https://github.com/HalseySpicy/Geeker-Admin/commit/a3b86a06a6d9cd4b6f7ac6e108727a0b4852e9a0))
+- 🧩 修复 loading 请求 bug ([a3270ec](https://github.com/HalseySpicy/Geeker-Admin/commit/a3270ecfa2e7c2484729ae6fd599febcc4f7be6b))
+- 🧩 修改 Pro-Table 表头渲染方式 ([aa57294](https://github.com/HalseySpicy/Geeker-Admin/commit/aa5729489942eaa6dca9928b70153af2de753a9c))
+- 🧩 修改 useTable 存在的 bug ([5bb55b3](https://github.com/HalseySpicy/Geeker-Admin/commit/5bb55b32c0b46bbf55fa0d49efe3a15d0b1673a4))
+- 🧩 修改 useTable 钩子中的 bug ([675aed8](https://github.com/HalseySpicy/Geeker-Admin/commit/675aed806e62c236b40bc933402c86085289df4e))
+- 🧩 修改 useTable 携带默认查询参数 bug ([ee585b2](https://github.com/HalseySpicy/Geeker-Admin/commit/ee585b29f3129b7143a10947fdd3184b197ad883))

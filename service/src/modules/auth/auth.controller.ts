@@ -1,5 +1,5 @@
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get, Param } from '@nestjs/common';
 import { User } from 'src/interface/user.interface';
 import { AuthService } from './auth.service';
 
@@ -29,5 +29,13 @@ export class AuthController {
   })
   async alter(@Body() userDto: User) {
     return await this.authService.alter(userDto);
+  }
+
+  @Get('captcha/:id')
+  @ApiOperation({
+    summary: '获取验证码',
+  })
+  async getCaptcha(@Param('id') id: string) {
+    return await this.authService.createCaptcha(id);
   }
 }

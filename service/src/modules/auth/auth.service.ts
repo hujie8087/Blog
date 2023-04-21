@@ -7,6 +7,7 @@ import { User } from 'src/interface/user.interface';
 import { encript } from 'src/utils/encription';
 import { UserService } from '../user/user.service';
 
+const svgCaptcha = require('svg-captcha');
 const logger = new Logger('auth.service');
 
 @Injectable()
@@ -17,44 +18,54 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
   private response: IResponse;
+  private pointer = 0;
+  private captchas = {};
   // 验证用户账号密码方法
   private async validateUser(user: User) {
-    const phone: string = user.phone;
+    const username: string = user.username;
     const password: string = user.password;
-    return await this.userService
-      .findUserByPhone(phone)
-      .then((res) => {
-        if (res.length > 0) {
-          return res[0];
-        } else {
+    const captcha: string = user.captcha;
+    const captchaId: string = user.captchaId;
+    if (captcha && captcha !== this.captchas[captchaId]) {
+      return (this.response = {
+        code: 500,
+        data: '',
+        msg: '验证码不正确',
+      });
+    } else {
+      return await this.userService
+        .findUserByUsername(username)
+        .then((res) => {
+          if (res.length > 0) {
+            return res[0];
+          } else {
+            throw '该用户未注册';
+          }
+        })
+        .then((dbUser: User) => {
+          const pass = encript(password, dbUser.salt);
+          if (pass === dbUser.password) {
+            this.response = {
+              code: 200,
+              data: {
+                userId: dbUser._id,
+              },
+              msg: '用户ID',
+            };
+            return this.response;
+          } else {
+            throw '用户密码错误';
+          }
+        })
+        .catch((err) => {
           this.response = {
             code: 500,
-            message: '该用户未注册',
-          };
-          throw this.response;
-        }
-      })
-      .then((dbUser: User) => {
-        const pass = encript(password, dbUser.salt);
-        if (pass === dbUser.password) {
-          this.response = {
-            code: 200,
-            message: {
-              userId: dbUser._id,
-            },
+            data: '',
+            msg: err,
           };
           return this.response;
-        } else {
-          this.response = {
-            code: 200,
-            message: '用户密码错误',
-          };
-          throw this.response;
-        }
-      })
-      .catch((err) => {
-        return this.response;
-      });
+        });
+    }
   }
   private async createToken(user: User) {
     return await this.jwtService.sign(user);
@@ -69,10 +80,10 @@ export class AuthService {
         }
         this.response = {
           code: 200,
-          message: {
-            token: await this.createToken(user),
-            userId: res.message.userId,
+          data: {
+            access_token: await this.createToken(user),
           },
+          msg: '登录成功',
         };
         return this.response;
       })
@@ -83,10 +94,10 @@ export class AuthService {
   //  用户注册方法
   public async create(user: User) {
     return await this.userService
-      .findUserByPhone(user.phone)
+      .findUserByUsername(user.username)
       .then((res) => {
         if (res.length > 0) {
-          this.response = { code: 500, message: '当前手机号已注册！' };
+          this.response = { code: 500, data: '', msg: '当前手机号已注册！' };
           throw this.response;
         }
       })
@@ -94,36 +105,62 @@ export class AuthService {
         try {
           const createUser = new this.userModel(user);
           await createUser.save();
-          this.response = { code: 200, message: '用户注册成功' };
+          this.response = { code: 200, data: '', msg: '用户注册成功' };
           return this.response;
         } catch (error) {
           this.response = {
             code: 500,
-            message: `用户注册失败，请联系管理员，错误详情：${error.message}`,
+            data: '',
+            msg: `用户注册失败，请联系管理员，错误详情：${error.message}`,
           };
           throw this.response;
         }
       })
       .catch((err) => {
-        logger.log(`${user.phone}:${err.message}`);
+        logger.log(`${user.username}:${err.message}`);
         return this.response;
       });
   }
   // 用户修改方法
   public async alter(user: User) {
-    return this.userService.findUserByPhone(user.phone).then(async () => {
+    return this.userService.findUserByUsername(user.username).then(async () => {
       return await this.userModel
-        .findOneAndUpdate({ phone: user.phone }, user, {}, () => {
-          logger.log(`用户${user.phone}密码修改成功`);
+        .findOneAndUpdate({ username: user.username }, user, {}, () => {
+          logger.log(`用户${user.username}密码修改成功`);
         })
         .then(() => {
-          console.log(111);
-          return (this.response = { code: 200, message: '用户密码修改成功！' });
+          return (this.response = {
+            code: 200,
+            data: '',
+            msg: '用户密码修改成功！',
+          });
         })
         .catch((err) => {
           console.log(222);
           return err;
         });
     });
+  }
+  // 获取登录验证码
+  public async createCaptcha(id?: string) {
+    if (id && id !== '-1') {
+      delete this.captchas[id];
+      console.log('删除id' + id);
+    }
+    const c = svgCaptcha.create({
+      width: 120, // 图片宽
+      height: 40, //图片长
+      color: true,
+    });
+    this.captchas[this.pointer] = c.text;
+    this.response = {
+      code: 0,
+      msg: '获取验证码成功',
+      data: {
+        id: this.pointer++,
+        img: c.data,
+      },
+    };
+    return this.response;
   }
 }

@@ -9,6 +9,7 @@ import { DbModule } from './db/db.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { RedisModule } from 'nestjs-redis';
+import { MenuModule } from './modules/menu/menu.module';
 
 const options: RedisModuleOptions = {
   port: 6379,
@@ -26,6 +27,7 @@ const options: RedisModuleOptions = {
     UserModule,
     AuthModule,
     RedisModule.register(options),
+    MenuModule,
     // AuthModule,
   ],
   controllers: [],

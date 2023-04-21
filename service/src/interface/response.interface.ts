@@ -1,4 +1,5 @@
 export interface IResponse {
   code: number;
-  message: any;
+  data: any;
+  msg: string;
 }

@@ -2,3 +2,5 @@
 export const PORT1 = "/geeker";
 export const PORT2 = "/hooks";
 export const PORT3 = "/auth";
+export const MENU = "/menu";
+export const ROLE = "/role";

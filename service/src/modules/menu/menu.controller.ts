@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { MenuService } from './menu.service';
 import { Menu } from 'src/interface/menu.interface';
@@ -8,7 +8,7 @@ import { Menu } from 'src/interface/menu.interface';
 @ApiBearerAuth('jwt')
 export class MenuController {
   constructor(private readonly menuService: MenuService) {}
-  @Get()
+  @Get('tree')
   getMenuList() {
     return this.menuService.getMenu();
   }
@@ -16,5 +16,15 @@ export class MenuController {
   @Post()
   addMenu(@Body() createMenuDto: Menu) {
     return this.menuService.addMenu(createMenuDto);
+  }
+
+  @Put()
+  updateMenu(@Body() updateMenuDto: Menu) {
+    return this.menuService.updateMenu(updateMenuDto);
+  }
+
+  @Get(':id')
+  getMenuById(@Param('id') id: number) {
+    return this.menuService.findMenuById(id);
   }
 }

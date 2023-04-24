@@ -1,5 +1,5 @@
 import { Login } from "@/api/interface/index";
-import { PORT1, PORT3 } from "@/api/config/servicePort";
+import { PORT1, PORT3, MENU } from "@/api/config/servicePort";
 import authMenuList from "@/assets/json/authMenuList.json";
 import authButtonList from "@/assets/json/authButtonList.json";
 import http from "@/api";
@@ -23,7 +23,7 @@ export const getCaptcha = (id?: string) => {
 
 // 获取菜单列表
 export const getAuthMenuListApi = () => {
-  // return http.get<Menu.MenuOptions[]>(PORT1 + `/menu/list`, {}, { noLoading: true });
+  return http.get<Menu.MenuOptions[]>(MENU + `/tree`, {}, { noLoading: true });
   // 如果想让菜单变为本地数据，注释上一行代码，并引入本地 authMenuList.json 数据
   return authMenuList;
 };

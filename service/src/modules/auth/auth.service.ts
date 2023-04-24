@@ -26,7 +26,13 @@ export class AuthService {
     const password: string = user.password;
     const captcha: string = user.captcha;
     const captchaId: string = user.captchaId;
-    if (captcha && captcha !== this.captchas[captchaId]) {
+    if (!captcha) {
+      return (this.response = {
+        code: 500,
+        data: '',
+        msg: '请输入验证码',
+      });
+    } else if (captcha !== this.captchas[captchaId]) {
       return (this.response = {
         code: 500,
         data: '',

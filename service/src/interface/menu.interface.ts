@@ -89,11 +89,40 @@ export class Menu extends Document {
 
   @Prop()
   @ApiProperty({
-    description: '类型：1目录，2菜单',
+    description: '类型：1目录，2菜单，3按钮',
     example: 2,
   })
   readonly type: number;
 
   @Prop()
   readonly id: number;
+
+  @Prop()
+  @ApiProperty({
+    description: '权限标记',
+    example: 'system:menu:add',
+  })
+  readonly auth: string;
+
+  @Prop()
+  children?: MenuList[];
+}
+
+@Schema()
+export class MenuList extends Document {
+  path: string;
+  name: string;
+  component?: string | (() => Promise<unknown>);
+  redirect?: string;
+  meta: {
+    icon: string;
+    title: string;
+    activeMenu?: string;
+    isLink?: string;
+    isHide: boolean;
+    isFull: boolean;
+    isAffix: boolean;
+    isKeepAlive: boolean;
+  };
+  children?: MenuList[];
 }

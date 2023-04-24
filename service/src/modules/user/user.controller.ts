@@ -1,19 +1,8 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  UseGuards,
-} from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
-import { User } from 'src/interface/user.interface';
-import { Role } from '../role/role.decorator';
+import { Controller, Get, Query } from '@nestjs/common';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { UserService } from './user.service';
 
+@ApiTags('user')
 @Controller('user')
 @ApiTags('用户模块')
 // @UseGuards(AuthGuard('jwt'))
@@ -22,13 +11,14 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  @Role('admin')
-  findAll() {
-    return this.userService.findAll();
-  }
-
-  @Get('hello')
-  hello() {
-    return this.userService.hello();
+  findAll(@Query() query) {
+    const page = {
+      pageNum: Number(query.pageNum),
+      pageSize: Number(query.pageSize),
+    };
+    const map = JSON.parse(JSON.stringify(query));
+    delete map.pageNum;
+    delete map.pageSize;
+    return this.userService.getUserList(map, page);
   }
 }

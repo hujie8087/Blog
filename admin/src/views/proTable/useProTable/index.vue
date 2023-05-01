@@ -50,7 +50,6 @@
 <script setup lang="tsx" name="useProTable">
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
-import { User } from "@/api/interface";
 import { ColumnProps } from "@/components/ProTable/interface";
 import { useHandleData } from "@/hooks/useHandleData";
 import { useDownload } from "@/hooks/useDownload";
@@ -62,8 +61,8 @@ import UserDrawer from "@/views/proTable/components/UserDrawer.vue";
 import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from "@element-plus/icons-vue";
 import {
   getUserList,
-  deleteUser,
-  editUser,
+  delUser,
+  updateUser,
   addUser,
   changeUserStatus,
   resetUserPassWord,
@@ -71,7 +70,8 @@ import {
   BatchAddUser,
   getUserStatus,
   getUserGender
-} from "@/api/modules/user";
+} from "@/api/modules/system/user";
+import { User } from "@/api/interface/system";
 
 const router = useRouter();
 
@@ -199,13 +199,13 @@ const columns: ColumnProps<User.ResUserList>[] = [
 
 // 删除用户信息
 const deleteAccount = async (params: User.ResUserList) => {
-  await useHandleData(deleteUser, { id: [params.id] }, `删除【${params.username}】用户`);
+  await useHandleData(delUser, { id: [params.id] }, `删除【${params.username}】用户`);
   proTable.value.getTableList();
 };
 
 // 批量删除用户信息
 const batchDelete = async (id: string[]) => {
-  await useHandleData(deleteUser, { id }, "删除所选用户信息");
+  await useHandleData(delUser, { id }, "删除所选用户信息");
   proTable.value.clearSelection();
   proTable.value.getTableList();
 };
@@ -248,7 +248,7 @@ const openDrawer = (title: string, row: Partial<User.ResUserList> = {}) => {
     title,
     isView: title === "查看",
     row: { ...row },
-    api: title === "新增" ? addUser : title === "编辑" ? editUser : undefined,
+    api: title === "新增" ? addUser : title === "编辑" ? updateUser : undefined,
     getTableList: proTable.value.getTableList
   };
   drawerRef.value?.acceptParams(params);

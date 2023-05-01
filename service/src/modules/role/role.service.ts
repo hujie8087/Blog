@@ -54,7 +54,7 @@ export class RoleService {
   }
 
   public async updateRole(role: Role) {
-    return this.roleModel.findOne({ id: role.id }).then(async () => {
+    return await this.roleModel.findOne({ id: role.id }).then(async () => {
       return await this.roleModel
         .findOneAndUpdate(
           { id: role.id },
@@ -78,12 +78,13 @@ export class RoleService {
   }
 
   public async getRoleById(id: number) {
-    const data = await this.roleModel.findById(id);
+    const data = await this.roleModel.findOne({ id });
     this.response = {
       code: 200,
       msg: '角色详情',
       data,
     };
+    return this.response;
   }
 
   public async delRole(id: number) {

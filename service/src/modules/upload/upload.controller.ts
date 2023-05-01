@@ -2,17 +2,13 @@ import {
   Controller,
   Get,
   Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
   UseInterceptors,
   UploadedFile,
   Res,
+  Body,
 } from '@nestjs/common';
 import { UploadService } from './upload.service';
-import { CreateUploadDto } from './dto/create-upload.dto';
-import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { join } from 'path';
 import { zip } from 'compressing';
@@ -26,8 +22,7 @@ export class UploadController {
   @ApiOperation({ summary: '文件上传' })
   @Post('album')
   @UseInterceptors(FileInterceptor('file'))
-  upload(@UploadedFile() file: CreateUploadDto) {
-    console.log(file, '1213');
+  upload(@UploadedFile() file) {
     return this.uploadService.upload(file);
   }
 

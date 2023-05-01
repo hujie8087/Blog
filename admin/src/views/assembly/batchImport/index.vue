@@ -19,7 +19,7 @@
 
 <script setup lang="ts" name="batchImport">
 import { ref } from "vue";
-import { exportUserInfo, BatchAddUser } from "@/api/modules/user";
+import { exportUserInfo, BatchAddUser } from "@/api/modules/system/user";
 import { Upload } from "@element-plus/icons-vue";
 import ImportExcel from "@/components/ImportExcel/index.vue";
 

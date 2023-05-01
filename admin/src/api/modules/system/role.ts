@@ -10,7 +10,7 @@ import { ROLE } from "@/api/config/servicePort";
 
 // * 新增系统角色
 export const addRole = (params: FormData) => {
-  return http.post(`/role`, params);
+  return http.post(ROLE, params);
 };
 
 // * 获取系统角色列表
@@ -26,6 +26,11 @@ export const updateRole = (params: { id: string }) => {
 // * 删除系统角色
 export const delRole = (id: number) => {
   return http.delete(ROLE + `/${id}`);
+};
+
+// * 获取系统角色详情
+export const getRoleById = (id: number) => {
+  return http.get<Role.ResRoleList>(ROLE + `/${id}`);
 };
 
 // 切换角色状态

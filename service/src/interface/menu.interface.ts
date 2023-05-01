@@ -108,7 +108,6 @@ export class Menu extends Document {
   children?: MenuList[];
 }
 
-@Schema()
 export class MenuList extends Document {
   path: string;
   name: string;

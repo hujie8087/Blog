@@ -6,6 +6,7 @@ import {
   Put,
   Delete,
   Query,
+  Param,
 } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { RoleService } from './role.service';
@@ -42,5 +43,10 @@ export class RoleController {
   @Put()
   updateRole(@Body() updateRoleDto: Role) {
     return this.roleService.updateRole(updateRoleDto);
+  }
+
+  @Get(':id')
+  getRoleById(@Param('id') id: number) {
+    return this.roleService.getRoleById(+id);
   }
 }

@@ -11,6 +11,10 @@ import { AuthModule } from './modules/auth/auth.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { RedisModule } from 'nestjs-redis';
 import { RoleModule } from './modules/role/role.module';
+import { ArticleTagModule } from './modules/article-tag/article-tag.module';
+import { UploadModule } from './modules/upload/upload.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 const options: RedisModuleOptions = {
   port: 6379,
@@ -30,6 +34,12 @@ const options: RedisModuleOptions = {
     RedisModule.register(options),
     MenuModule,
     RoleModule,
+    ArticleTagModule,
+    UploadModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'dist/images'),
+      serveRoot: '/static',
+    }),
     // AuthModule,
   ],
   controllers: [],

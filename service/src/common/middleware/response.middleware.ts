@@ -13,7 +13,7 @@ export class Response<T> implements NestInterceptor {
         return {
           data,
           code: 200,
-          message: '成功',
+          msg: '成功',
           success: true,
         };
       }),

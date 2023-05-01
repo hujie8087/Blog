@@ -1,20 +1,25 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUploadDto } from './dto/create-upload.dto';
+import { IResponse } from 'src/interface/response.interface';
 
 @Injectable()
 export class UploadService {
+  private response: IResponse;
+
   upload(file: CreateUploadDto) {
     if (file) {
-      return {
+      this.response = {
         code: 200,
-        fileUrl: 'images/' + file.filename,
-        success: '图片上传成功',
+        data: file.filename,
+        msg: '图片上传成功',
       };
     } else {
-      return {
-        code: 400,
-        success: '图片上传失败',
+      this.response = {
+        code: 200,
+        data: '',
+        msg: '图片上传失败',
       };
     }
+    return this.response;
   }
 }

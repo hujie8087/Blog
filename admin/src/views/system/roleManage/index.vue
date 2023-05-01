@@ -29,14 +29,13 @@
 
 <script setup lang="tsx" name="roleManage">
 import { ref, reactive, onBeforeMount } from "vue";
-import { User } from "@/api/interface";
 import { ColumnProps } from "@/components/ProTable/interface";
 import { useHandleData } from "@/hooks/useHandleData";
 import { useAuthButtons } from "@/hooks/useAuthButtons";
 import ProTable from "@/components/ProTable/index.vue";
 import ImportExcel from "@/components/ImportExcel/index.vue";
 import { CirclePlus, Delete, EditPen, View } from "@element-plus/icons-vue";
-import { getRoleList, delRole, updateRole, addRole, changeRoleStatus } from "@/api/modules/system/role";
+import { getRoleList, delRole, updateRole, addRole, changeRoleStatus, getRoleById } from "@/api/modules/system/role";
 import { Menu, Role } from "@/api/interface/system";
 import RoleDrawer from "./components/RoleDrawer.vue";
 import { getMenuTree } from "@/api/modules/system/menu";
@@ -116,8 +115,8 @@ const columns: ColumnProps<Role.ResRoleList>[] = [
 ];
 
 // 删除角色信息
-const deleteAccount = async (params: User.ResUserList) => {
-  await useHandleData(delRole, { id: [params.id] }, `删除【${params.username}】角色`);
+const deleteAccount = async (params: Role.ResRoleList) => {
+  await useHandleData(delRole, { id: [params.id] }, `删除【${params.name}】角色`);
   proTable.value.getTableList();
 };
 
@@ -142,11 +141,16 @@ onBeforeMount(async () => {
 
 // 打开 drawer(新增、查看、编辑)
 const drawerRef = ref<InstanceType<typeof RoleDrawer> | null>(null);
-const openDrawer = (title: string, row: Partial<Role.ResRoleList> = {}) => {
+const openDrawer = async (title: string, row: Partial<Role.ResRoleList> = {}) => {
+  let rowData = row;
+  if (title === "编辑") {
+    const { data } = await getRoleById(row.id as number);
+    rowData = data;
+  }
   const params = {
     title,
     isView: title === "查看",
-    row: { ...row },
+    row: rowData,
     api: title === "新增" ? addRole : title === "编辑" ? updateRole : undefined,
     getTableList: proTable.value.getTableList,
     menuList: menuList

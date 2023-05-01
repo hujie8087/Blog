@@ -15,7 +15,7 @@
       :accept="fileType.join(',')"
     >
       <template v-if="imageUrl">
-        <img :src="imageUrl" class="upload-image" />
+        <img :src="'api/' + imageUrl" class="upload-image" />
         <div class="upload-handle" @click.stop>
           <div class="handle-icon" @click="editImg" v-if="!self_disabled">
             <el-icon><Edit /></el-icon>
@@ -106,7 +106,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   try {
     const api = props.api ?? uploadImg;
     const { data } = await api(formData);
-    emit("update:imageUrl", data.fileUrl);
+    emit("update:imageUrl", `static/${data}`);
     // 调用 el-form 内部的校验方法（可自动校验）
     formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   } catch (error) {

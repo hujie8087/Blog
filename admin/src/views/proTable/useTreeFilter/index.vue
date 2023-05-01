@@ -60,7 +60,7 @@ import {
   getUserStatus,
   getUserGender,
   getUserDepartment
-} from "@/api/modules/user";
+} from "@/api/modules/system/user";
 
 const router = useRouter();
 

@@ -1,13 +1,24 @@
 export interface ArticleType {
-  ArticleCover: string;
-  ArticleTag: string;
-  CommentNum: number;
-  Content: string;
-  CreateDate: string;
-  Summary: string;
-  Title: string;
-  Token: string;
-  articleReadNum: number;
-  order: number;
-  _id: string;
+  id?: number;
+  title: string;
+  articleCover: string;
+  articleTag?: string;
+  commentNum?: number;
+  content: string;
+  summary: string;
+  createDate: string;
+  articleReadNum?: number;
+  sort: number;
+  token: string;
+  status: number;
+}
+
+export interface PageType {
+  pageNum: number;
+  pageSize: number;
+}
+
+export interface articleTagType {
+  id: number;
+  title: string;
 }

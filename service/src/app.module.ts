@@ -9,18 +9,19 @@ import { DbModule } from './db/db.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { MenuModule } from './modules/menu/menu.module';
-import { RedisModule } from 'nestjs-redis';
+// import { RedisModule } from 'nestjs-redis';
 import { RoleModule } from './modules/role/role.module';
 import { ArticleTagModule } from './modules/article-tag/article-tag.module';
 import { UploadModule } from './modules/upload/upload.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { MessageModule } from './modules/message/message.module';
 
-const options: RedisModuleOptions = {
-  port: 6379,
-  name: 'jayden',
-  host: '127.0.0.1',
-};
+// const options: RedisModuleOptions = {
+//   port: 6379,
+//   name: 'jayden',
+//   host: '127.0.0.1',
+// };
 // 装饰器
 @Module({
   imports: [
@@ -31,7 +32,7 @@ const options: RedisModuleOptions = {
     DbModule,
     UserModule,
     AuthModule,
-    RedisModule.register(options),
+    // RedisModule.register(options),
     MenuModule,
     RoleModule,
     ArticleTagModule,
@@ -40,6 +41,7 @@ const options: RedisModuleOptions = {
       rootPath: join(__dirname, '..', 'dist/images'),
       serveRoot: '/static',
     }),
+    MessageModule,
     // AuthModule,
   ],
   controllers: [],

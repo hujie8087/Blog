@@ -74,7 +74,7 @@ const rules = reactive<FormRules>({
   articleTag: [{ required: true, message: "请选择文章标签", trigger: "blur" }]
 });
 
-const tagDict = ref<ArticleTag.ArticleTagDict[]>();
+const tagDict = ref<ArticleTag.ArticleTagDict[]>([]);
 
 const getTagDictList = async () => {
   const { data } = await getArticleTagDict();

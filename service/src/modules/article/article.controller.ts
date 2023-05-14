@@ -18,6 +18,12 @@ export class ArticleController {
   // 构造函数，注入服务类
   constructor(private readonly articleService: ArticleService) {}
 
+  @ApiOperation({ summary: '热门文章' })
+  @Get('/hot')
+  async findHotArticle() {
+    return await this.articleService.getHotArticle();
+  }
+
   @ApiOperation({ summary: '文章列表' })
   @Get()
   async findAll(@Query() query) {

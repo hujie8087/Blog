@@ -4,14 +4,16 @@
       <div class="BlogIndexContentLeft">
         <article-item
           v-for="item in articleList"
-          :key="item._id"
+          :key="item.id"
           :article="item"
+          @click="toDetail(item)"
         />
       </div>
       <div class="BlogIndexContentRight">
         <HotArticleModule
-          :hot-article="articleList"
-          :tag-listHead="tagListHead"
+          v-if="hotArticleList.length > 0"
+          :hot-article-list="hotArticleList"
+          :tag-list-head="tagListHead"
         />
         <div class="Module">
           <div class="TopBack"></div>
@@ -57,12 +59,12 @@
           <div class="TagListTr">
             <el-check-tag
               v-for="item in tagList"
-              :checked="tagCheckedList.includes(item._id)"
-              @change="onChange(item._id)"
-              :key="item._id"
+              :checked="tagCheckedList.includes(item.id)"
+              @change="onChange(item.id)"
+              :key="item.id"
               effect="dark"
             >
-              {{ item.label }}
+              {{ item.title }}
             </el-check-tag>
           </div>
         </div>
@@ -72,44 +74,16 @@
 </template>
 
 <script setup lang="ts">
-import type { ArticleType } from '#/article';
+import type { ArticleType, PageType, articleTagType } from '#/article';
+import { accountArticle, getArticleTag, getHotArticle } from '@/api/article';
 import ArticleItem from '@/components/ArticleItem.vue';
 import HotArticleModule from '@/components/HotArticleModule.vue';
+import router from '@/router';
+import { dayjs } from 'element-plus';
 const tagListHead = ref('热门博文');
-const articleList: Array<ArticleType> = reactive([
-  {
-    ArticleCover: 'http://39.104.22.73:8888/maiDian.jpg',
-    ArticleTag: '技术笔记',
-    CommentNum: 4,
-    Content: '内容副标题',
-    CreateDate: '2022-12-11',
-    Summary: '概括',
-    Title: '文章标题',
-    Token: 'fdsfdsagafdsafdsagdsafdsa',
-    articleReadNum: 100,
-    order: 1,
-    _id: '1',
-  },
-  {
-    ArticleCover: 'http://39.104.22.73:8888/maiDian.jpg',
-    ArticleTag: '技术笔记',
-    CommentNum: 5,
-    Content: '内容副标题',
-    CreateDate: '2022-12-11',
-    Summary: '概括',
-    Title: '文章标题',
-    Token: 'fdsfdsagafdsafdsagdsafdsa',
-    articleReadNum: 10,
-    order: 2,
-    _id: '1',
-  },
-]);
-const tagList = reactive([
-  { _id: 1, label: '技术笔记' },
-  { _id: 2, label: '成长感悟' },
-  { _id: 3, label: '征求意见' },
-  { _id: 4, label: '服务器部署' },
-]);
+const articleList = ref<ArticleType[]>([]);
+const hotArticleList = ref<ArticleType[]>([]);
+const tagList = ref<articleTagType[]>([]);
 let tagCheckedList: Array<number> = reactive([]);
 const blogStatistic = reactive({
   title: "Jayden's Blog",
@@ -127,6 +101,40 @@ const onChange = (_id: number): void => {
     tagCheckedList.push(_id);
   }
 };
+
+const page = reactive<PageType>({
+  pageNum: 1,
+  pageSize: 10,
+});
+
+const getArticleList = async () => {
+  const { data } = await accountArticle(page);
+  articleList.value = data.list.map((item) => {
+    return {
+      ...item,
+      createDate: dayjs(item.createDate).format('YYYY-MM-DD HH:mm:ss'),
+    };
+  });
+};
+
+const getArticleTagDict = async () => {
+  const { data } = await getArticleTag();
+  tagList.value = data;
+};
+
+const toDetail = (article: ArticleType) => {
+  router.push(`/BlogDetail?id=${article.id}`);
+};
+
+const getHotArticleList = async () => {
+  const { data } = await getHotArticle();
+  hotArticleList.value = data;
+};
+onBeforeMount(() => {
+  getArticleTagDict();
+  getArticleList();
+  getHotArticleList();
+});
 </script>
 
 <style scoped lang="less">

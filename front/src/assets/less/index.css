@@ -81,15 +81,6 @@ summary {
 li {
   list-style: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small {
-  font-size: 100%;
-}
 sup,
 sub {
   font-size: 83%;
@@ -171,7 +162,15 @@ a:hover {
   text-align: center;
   display: block;
   text-decoration: none;
-  background: -webkit-gradient(linear, left top, right top, from(#03a9f4), color-stop(#f441a5), color-stop(#ffeb3b), to(#03a9f4));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#03a9f4),
+    color-stop(#f441a5),
+    color-stop(#ffeb3b),
+    to(#03a9f4)
+  );
   background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
   background-size: 400%;
 }

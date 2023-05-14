@@ -6,6 +6,7 @@ import { CountersSchema } from './schema/counters.schema';
 import { RoleSchema } from './schema/role.schema';
 import { ArticleTagSchema } from './schema/articleTag.schema';
 import { ArticleSchema } from './schema/article.schema';
+import { MessageSchema } from './schema/message.schema';
 
 // 连接数据库，指定schema和集合
 const MONGO_MODELS = MongooseModule.forFeature([
@@ -38,6 +39,11 @@ const MONGO_MODELS = MongooseModule.forFeature([
     name: 'ARTICLE_MODEL',
     schema: ArticleSchema,
     collection: 'article',
+  },
+  {
+    name: 'MESSAGE_MODEL',
+    schema: MessageSchema,
+    collection: 'message',
   },
 ]);
 

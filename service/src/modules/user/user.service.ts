@@ -10,35 +10,35 @@ export class UserService {
   public client;
   private response: IResponse;
   constructor(
-    @InjectModel('USER_MODEL') private readonly userModel: Model<User>,
-    private readonly redisService: RedisService,
+    @InjectModel('USER_MODEL') private readonly userModel: Model<User>, // private readonly redisService: RedisService,
   ) {
-    this.getClient();
+    // this.getClient();
   }
-  async getClient() {
-    this.client = await this.redisService.getClient();
-  }
+  // async getClient() {
+  //   this.client = await this.redisService.getClient();
+  // }
 
-  async set(key: string, value: any, seconds?: number) {
-    value = JSON.stringify(value);
-    if (!this.client) {
-      await this.getClient();
-    }
-    if (!seconds) {
-      return await this.client.set(key, value);
-    } else {
-      return await this.client.set(key, value, 'EX', seconds);
-    }
-  }
-  //获取值的方法
-  async get(key: string) {
-    if (!this.client) {
-      return await this.getClient();
-    }
-    const data = await this.client.get(key);
-    if (!data) return;
-    return JSON.parse(data);
-  }
+  // async set(key: string, value: any, seconds?: number) {
+  //   value = JSON.stringify(value);
+  //   if (!this.client) {
+  //     await this.getClient();
+  //   }
+  //   if (!seconds) {
+  //     return await this.client.set(key, value);
+  //   } else {
+  //     return await this.client.set(key, value, 'EX', seconds);
+  //   }
+  // }
+  // //获取值的方法
+  // async get(key: string) {
+  //   if (!this.client) {
+  //     return await this.getClient();
+  //   }
+  //   const data = await this.client.get(key);
+  //   if (!data) return;
+  //   return JSON.parse(data);
+  // }
+
   public async getUserList(map, page) {
     const total = await this.userModel.countDocuments({ ...map, isDel: 0 });
     return await this.userModel

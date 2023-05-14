@@ -5,8 +5,8 @@
       <div>{{ title }}</div>
     </div>
     <div style="flex: 1 1 0%">
-      <el-form :model="form">
-        <el-form-item>
+      <el-form ref="messageForm" :model="form" :rules="rules">
+        <el-form-item prop="content">
           <el-input
             v-model="form.content"
             :rows="4"
@@ -14,7 +14,7 @@
             placeholder="欢迎留下您的脚印！"
           />
         </el-form-item>
-        <el-form-item class="OpenMessageSubmit">
+        <el-form-item class="OpenMessageSubmit" prop="name">
           <el-input
             v-model="form.name"
             class="LeaveMessageName"
@@ -22,7 +22,7 @@
           />
           <el-button
             type="primary"
-            @click="onSubmit"
+            @click="onSubmit(messageForm)"
             class="OpenMessageSubmitButton"
             >提交</el-button
           >
@@ -34,11 +34,18 @@
 
 <script setup lang="ts">
 import Bus from '@/plugins/Bus.js';
+import { postMessage } from 'api/message';
+import { FormInstance, FormRules } from 'element-plus';
+
 const { title } = defineProps(['title']);
 const form = reactive({
   name: '',
   content: '',
   replyId: '',
+});
+const rules = reactive<FormRules>({
+  name: [{ required: true, message: '请输入您的姓名或昵称', trigger: 'blur' }],
+  content: [{ required: true, message: '请输入您的留言内容', trigger: 'blur' }],
 });
 onMounted(() => {
   Bus.on('comment', (e: any) => {
@@ -46,8 +53,15 @@ onMounted(() => {
     form.content = '@' + e.MessageLeaveName;
   });
 });
-const onSubmit = () => {
-  console.log('submit!');
+const messageForm = ref<FormInstance>();
+const onSubmit = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  await formEl.validate(async (valid, fields) => {
+    if (valid) {
+      const { data } = await postMessage(form);
+      console.log(data);
+    }
+  });
 };
 onBeforeUnmount(() => {
   Bus.off('comment');

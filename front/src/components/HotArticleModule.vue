@@ -1,11 +1,11 @@
 <template>
   <div class="Module HotArticleModule">
     <div class="TagListHead">
-      {{ tagListHead }}
+      {{ props.tagListHead }}
     </div>
     <div class="HotArticle">
       <div
-        v-for="(item, index) in hotArticle"
+        v-for="(item, index) in props.hotArticleList"
         :key="item.id"
         class="HotArticleItem"
       >
@@ -16,7 +16,7 @@
             >NO{{ index + 1 }}</span
           >
           <span v-else>NO{{ index + 1 }}</span>
-          {{ item.Title }}
+          {{ item.title }}
         </div>
       </div>
     </div>
@@ -24,7 +24,13 @@
 </template>
 
 <script setup lang="ts">
-const { hotArticle, tagListHead } = defineProps(['hotArticle', 'tagListHead']);
+import { ArticleType } from '@/types/article';
+
+interface Props {
+  hotArticleList: ArticleType[];
+  tagListHead: string;
+}
+const props = defineProps<Props>();
 const colorList = reactive([
   '#f44e03',
   '#d41800',

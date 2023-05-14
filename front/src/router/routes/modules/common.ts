@@ -18,6 +18,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/HomePage.vue'),
       },
       {
+        path: '/BlogDetail',
+        name: 'BlogDetail',
+        component: () => import('@/views/BlogDetail.vue'),
+      },
+      {
         path: '/MessageBoard',
         name: 'MessageBoard',
         component: () => import('@/views/MessageBoard.vue'),

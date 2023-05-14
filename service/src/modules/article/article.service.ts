@@ -136,4 +136,18 @@ export class ArticleService {
         });
       });
   }
+
+  // 获取热门文章推荐
+  public async getHotArticle() {
+    const res = await this.articleModel
+      .find({ isDel: 0 }, { __v: 0, _id: 0, token: 0, updateDate: 0 })
+      .sort({ articleReadNum: 1 })
+      .limit(10);
+    this.response = {
+      code: 200,
+      msg: '热门文章',
+      data: res,
+    };
+    return this.response;
+  }
 }

@@ -1,23 +1,23 @@
 <template>
   <div class="ArticleItem">
     <div class="ArticleItemCover">
-      <img :src="article.ArticleCover" alt="" srcset="" />
+      <img :src="article.articleCover" alt="" srcset="" />
     </div>
     <div style="flex: 1 1 0%">
       <div class="ArticleTitle">
-        <h3 class="ArticleTitleText">{{ article.Title }}</h3>
+        <h3 class="ArticleTitleText">{{ article.title }}</h3>
       </div>
       <div class="ArticleContent">
-        {{ article.Content }}
+        {{ article.summary }}
       </div>
       <div class="ArticleFooter">
         <div class="ArticleFooterItem">
           <el-icon><CollectionTag /></el-icon>
-          {{ article.ArticleTag }}
+          {{ article.articleTag }}
         </div>
         <div class="ArticleFooterItem">
           <el-icon><Clock /></el-icon>
-          {{ article.CreateDate }}
+          {{ article.createDate }}
         </div>
         <div class="ArticleFooterItem">
           <el-icon><View /></el-icon>
@@ -25,7 +25,7 @@
         </div>
         <div class="ArticleFooterItem">
           <el-icon><ChatDotSquare /></el-icon>
-          {{ article.CommentNum }}
+          {{ article.commentNum }}
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-const { article } = defineProps(['article']);
+defineProps(['article']);
 </script>
 
 <style scoped lang="less">
@@ -98,6 +98,9 @@ const { article } = defineProps(['article']);
       color: rgba(0, 0, 0, 0.65);
       font-size: 0.8rem;
       cursor: pointer;
+      i {
+        vertical-align: text-bottom;
+      }
     }
   }
 }

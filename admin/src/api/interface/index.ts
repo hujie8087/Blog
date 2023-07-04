@@ -35,8 +35,6 @@ export namespace Login {
   export interface ReqLoginForm {
     username: string;
     password: string;
-    captcha: string;
-    captchaId: string;
   }
   export interface ResLogin {
     access_token: string;

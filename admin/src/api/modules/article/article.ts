@@ -18,7 +18,7 @@ export const getArticleList = (params: Article.ReqArticleParams) => {
 };
 
 // 查询文章详情
-export const getArticleById = (id: number) => {
+export const getArticleById = (id: string) => {
   return http.get<Article.Article>(`${ARTICLE}/${id}`);
 };
 

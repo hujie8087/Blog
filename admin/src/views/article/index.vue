@@ -15,7 +15,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button type="primary" link :icon="View">查看</el-button>
-        <el-button type="primary" link :icon="EditPen" @click="updateArticle(scope.row.id)">编辑</el-button>
+        <el-button type="primary" link :icon="EditPen" @click="updateArticle(scope.row._id)">编辑</el-button>
         <el-button type="primary" link @click="deleteAccount(scope.row)" :icon="Delete">删除</el-button>
       </template>
     </ProTable>
@@ -81,7 +81,11 @@ const columns: ColumnProps<Article.Article>[] = [
     render: scope => {
       return (
         <>
-          <el-image src={"api/" + scope.row.articleCover} style="width: 100px; height: 100px;" />
+          {scope.row.articleCover ? (
+            <el-image src={"api/" + scope.row.articleCover} style="width: 100px; height: 100px;" />
+          ) : (
+            "--"
+          )}
         </>
       );
     }
@@ -138,7 +142,7 @@ const createArticle = () => {
   router.push(`/article/create`);
 };
 
-const updateArticle = (id: number) => {
+const updateArticle = (id: string) => {
   router.push(`/article/create?id=${id}`);
 };
 

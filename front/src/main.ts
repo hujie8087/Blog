@@ -11,7 +11,7 @@ import Particles from 'particles.vue3';
 const bootstrap = () => {
   const app = createApp(App);
   app.use(ElementPlus);
-  app.use(Particles);
+  app.use(Particles as any);
   // 安装store
   setupStore(app);
   // 安装初始化路由

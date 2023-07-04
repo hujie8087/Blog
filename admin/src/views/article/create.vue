@@ -101,7 +101,7 @@ onBeforeMount(() => {
   }
 });
 
-const getArticleDetail = async (id: number) => {
+const getArticleDetail = async (id: string) => {
   const { data } = await getArticleById(id);
   articleDetail.value = data;
 };

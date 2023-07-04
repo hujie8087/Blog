@@ -14,16 +14,6 @@
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item prop="captcha">
-      <el-input v-model="loginForm.captcha" placeholder="输入验证码">
-        <template #prefix>
-          <el-icon class="el-input__icon"><lock /></el-icon>
-        </template>
-        <template #append>
-          <span style="height: 40px; line-height: 40px; padding: 0; cursor: pointer" v-html="captcha.img" @click="getCode"></span>
-        </template>
-      </el-input>
-    </el-form-item>
   </el-form>
   <div class="login-btn">
     <el-button :icon="CircleClose" round @click="resetForm(loginFormRef)" size="large">重置</el-button>
@@ -40,7 +30,7 @@ import { HOME_URL } from "@/config";
 import { getTimeState } from "@/utils";
 import { Login } from "@/api/interface";
 import { ElNotification } from "element-plus";
-import { loginApi, getCaptcha } from "@/api/modules/login";
+import { loginApi } from "@/api/modules/login";
 import { useUserStore } from "@/stores/modules/user";
 import { useTabsStore } from "@/stores/modules/tabs";
 import { useKeepAliveStore } from "@/stores/modules/keepAlive";
@@ -57,16 +47,13 @@ type FormInstance = InstanceType<typeof ElForm>;
 const loginFormRef = ref<FormInstance>();
 const loginRules = reactive({
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-  password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-  captcha: [{ required: true, message: "请输入验证码", trigger: "blur" }]
+  password: [{ required: true, message: "请输入密码", trigger: "blur" }]
 });
 
 const loading = ref(false);
 const loginForm = reactive<Login.ReqLoginForm>({
   username: "admin",
-  password: "123456",
-  captcha: "",
-  captchaId: ""
+  password: "123456"
 });
 
 // login
@@ -77,7 +64,7 @@ const login = (formEl: FormInstance | undefined) => {
     loading.value = true;
     try {
       // 1.执行登录接口
-      const { data } = await loginApi({ ...loginForm, captchaId: captcha.value.id });
+      const { data } = await loginApi(loginForm);
       userStore.setToken(data.access_token);
 
       // 2.添加动态路由
@@ -107,21 +94,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
   formEl.resetFields();
 };
 
-const captcha = ref({
-  id: "-1",
-  img: ""
-});
-
-const getCode = async () => {
-  if (captcha.value?.id) {
-    const { data } = await getCaptcha(captcha.value.id);
-    captcha.value = data;
-  } else {
-    const { data } = await getCaptcha();
-    captcha.value = data;
-  }
-};
-
 onMounted(() => {
   // 监听 enter 事件（调用登录）
   document.onkeydown = (e: KeyboardEvent) => {
@@ -131,7 +103,6 @@ onMounted(() => {
       login(loginFormRef.value);
     }
   };
-  getCode();
 });
 </script>
 

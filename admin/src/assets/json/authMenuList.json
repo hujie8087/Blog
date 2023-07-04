@@ -1025,6 +1025,78 @@
         "isAffix": false,
         "isKeepAlive": true
       }
+    },
+    {
+      "path": "/article/index",
+      "name": "article",
+      "component": "/article/index",
+      "meta": {
+        "icon": "InfoFilled",
+        "title": "文章管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      },
+      "children": [
+        {
+          "path": "/article/create",
+          "name": "articleCreate",
+          "component": "/article/create",
+          "meta": {
+            "icon": "InfoFilled",
+            "title": "编辑文章",
+            "isLink": "",
+            "isHide": true,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        },
+        {
+          "path": "/article/detail",
+          "name": "articleDetail",
+          "component": "/article/detail",
+          "meta": {
+            "icon": "InfoFilled",
+            "title": "文章详情",
+            "isLink": "",
+            "isHide": true,
+            "isFull": false,
+            "isAffix": false,
+            "isKeepAlive": true
+          }
+        }
+      ]
+    },
+    {
+      "path": "/articleTag/index",
+      "name": "articleTag",
+      "component": "/articleTag/index",
+      "meta": {
+        "icon": "InfoFilled",
+        "title": "文章标签管理",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
+    },
+    {
+      "path": "/message/index",
+      "name": "message",
+      "component": "/message/index",
+      "meta": {
+        "icon": "InfoFilled",
+        "title": "留言",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
     }
   ],
   "msg": "成功"

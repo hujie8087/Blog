@@ -84,13 +84,15 @@ const getTagDictList = async () => {
 const queryId = ref();
 
 const articleDetail = ref<Article.Article>({
+  _id: "",
   title: "",
   summary: "",
   sort: 0,
   status: 0,
   content: "",
   articleTag: "",
-  articleCover: ""
+  articleCover: "",
+  createdAt: ""
 });
 
 onBeforeMount(() => {

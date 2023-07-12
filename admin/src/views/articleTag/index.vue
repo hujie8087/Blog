@@ -99,12 +99,16 @@ const columns: ColumnProps<ArticleTag.ArticleTag>[] = [
       );
     }
   },
+  {
+    prop: "remark",
+    label: "标签备注"
+  },
   { prop: "operation", label: "操作", fixed: "right", width: 330 }
 ];
 
 // 删除角色信息
 const deleteAccount = async (params: ArticleTag.ArticleTag) => {
-  await useHandleData(delArticleTag, { id: [params.id] }, `删除【${params.title}】角色`);
+  await useHandleData(delArticleTag, params._id, `删除【${params.title}】角色`);
   proTable.value.getTableList();
 };
 
@@ -113,7 +117,7 @@ const drawerRef = ref<InstanceType<typeof ArticleTagDrawer> | null>(null);
 const openDrawer = async (title: string, row: Partial<ArticleTag.ArticleTag> = {}) => {
   let rowData = row;
   if (title === "编辑") {
-    const { data } = await getArticleTagById(row.id as number);
+    const { data } = await getArticleTagById(row._id as string);
     rowData = data;
   }
   const params = {

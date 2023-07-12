@@ -18,17 +18,17 @@ export const getArticleTagList = (params: ArticleTag.ReqArticleTagParams) => {
 };
 
 // 查询文章标签详情
-export const getArticleTagById = (id: number) => {
+export const getArticleTagById = (id: string) => {
   return http.get<ArticleTag.ArticleTag>(`${ARTICLETag}/${id}`);
 };
 
 // 修改文章标签
 export const updateArticleTag = (params: ArticleTag.ArticleTag) => {
-  return http.put<ResultData>(ARTICLETag, params);
+  return http.put<ResultData>(`${ARTICLETag}/${params._id}`, params);
 };
 
 // 删除文章标签
-export const delArticleTag = (id: number) => {
+export const delArticleTag = (id: string) => {
   return http.delete<ResultData>(`${ARTICLETag}/${id}`);
 };
 

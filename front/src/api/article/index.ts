@@ -4,10 +4,10 @@ import { ResList } from '@/types/axios';
 import request from '@/utils/http/index';
 // api枚举
 enum Api {
-  getArticleList = '/article',
-  getArticleDetail = '/article',
-  getArticleTag = '/article-tag/dict',
-  getHotArticle = '/article/hot',
+  getArticleList = '/articles',
+  getArticleDetail = '/articles',
+  getArticleTag = '/article-tags',
+  getHotArticle = '/articles/hotArticles',
 }
 
 /**
@@ -21,7 +21,7 @@ export const accountArticle = (page: PageType) => {
   });
 };
 
-export const getArticleDetail = (id: number) => {
+export const getArticleDetail = (id: string) => {
   return request<ArticleType>({
     url: `${Api.getArticleDetail}/${id}`,
     method: 'get',

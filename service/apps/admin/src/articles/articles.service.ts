@@ -54,11 +54,11 @@ export class ArticlesService {
   // 查询详情
   async findOne(id: string) {
     return await this.articlesModel
-      .findOne({ _id: id, isDel: 0 })
+      .findOne({ _id: id, isDel: false })
       .then(async () => {
         const data = await this.articlesModel.findOne(
           { _id: id, isDel: false },
-          { __v: 0, _id: 0, token: 0, createdAt: 0, updatedAt: 0, isDel: 0 },
+          { __v: 0, token: 0, createdAt: 0, updatedAt: 0, isDel: 0 },
         );
         this.response = {
           code: 200,
@@ -102,16 +102,31 @@ export class ArticlesService {
     return await this.articlesModel
       .findOne({ _id })
       .then(async () => {
-        await this.articlesModel.findOneAndUpdate(
-          { _id },
-          { isDel: false },
-          () => {
-            Logger.log(`文章删除${_id}成功`);
-          },
-        );
+        await this.articlesModel.findOneAndUpdate({ _id }, { isDel: true }, {});
         this.response = {
           code: 200,
           msg: '文章删除成功',
+          data: '',
+        };
+        return this.response;
+      })
+      .catch(() => {
+        return (this.response = {
+          code: 500,
+          msg: '文章不存在',
+          data: '',
+        });
+      });
+  }
+  // 修改文章状态
+  async changeArticleStatus(_id: string, status: number) {
+    return await this.articlesModel
+      .findOne({ _id })
+      .then(async () => {
+        await this.articlesModel.findOneAndUpdate({ _id }, { status }, {});
+        this.response = {
+          code: 200,
+          msg: '文章状态修改成功',
           data: '',
         };
         return this.response;

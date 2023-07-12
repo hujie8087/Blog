@@ -4,7 +4,7 @@
       <div class="BlogIndexContentLeft">
         <article-item
           v-for="item in articleList"
-          :key="item.id"
+          :key="item._id"
           :article="item"
           @click="toDetail(item)"
         />
@@ -59,12 +59,12 @@
           <div class="TagListTr">
             <el-check-tag
               v-for="item in tagList"
-              :checked="tagCheckedList.includes(item.id)"
-              @change="onChange(item.id)"
-              :key="item.id"
+              :checked="tagCheckedList.includes(item.value)"
+              @change="onChange(item.value)"
+              :key="item.value"
               effect="dark"
             >
-              {{ item.title }}
+              {{ item.label }}
             </el-check-tag>
           </div>
         </div>
@@ -112,7 +112,7 @@ const getArticleList = async () => {
   articleList.value = data.list.map((item) => {
     return {
       ...item,
-      createDate: dayjs(item.createDate).format('YYYY-MM-DD HH:mm:ss'),
+      createdAt: dayjs(item.createDate).format('YYYY-MM-DD HH:mm:ss'),
     };
   });
 };
@@ -123,7 +123,7 @@ const getArticleTagDict = async () => {
 };
 
 const toDetail = (article: ArticleType) => {
-  router.push(`/BlogDetail?id=${article.id}`);
+  router.push(`/BlogDetail?id=${article._id}`);
 };
 
 const getHotArticleList = async () => {

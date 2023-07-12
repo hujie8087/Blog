@@ -23,16 +23,10 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         ws: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-      '/static': {
-        target: 'http://localhost:3000/static',
-        changeOrigin: true,
-        ws: true,
-        rewrite: (path) => path.replace(/^\/static/, ''),
       },
     },
   },

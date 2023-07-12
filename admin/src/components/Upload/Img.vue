@@ -43,7 +43,7 @@
     <div class="el-upload__tip">
       <slot name="tip"></slot>
     </div>
-    <el-image-viewer v-if="imgViewVisible" @close="imgViewVisible = false" :url-list="[imageUrl]" />
+    <el-image-viewer v-if="imgViewVisible" @close="imgViewVisible = false" :url-list="['api/' + imageUrl]" />
   </div>
 </template>
 
@@ -106,7 +106,7 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   try {
     const api = props.api ?? uploadImg;
     const { data } = await api(formData);
-    emit("update:imageUrl", `static/${data}`);
+    emit("update:imageUrl", `${data.fileUrl}`);
     // 调用 el-form 内部的校验方法（可自动校验）
     formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   } catch (error) {

@@ -2,7 +2,7 @@ import { ReqPage } from "./index";
 
 export namespace ArticleTag {
   export interface ArticleTag {
-    id: number;
+    _id: string;
     title: string;
     sort: number;
     status: number;
@@ -23,7 +23,7 @@ export namespace ArticleTag {
 
 export namespace Article {
   export interface Article {
-    id?: number;
+    _id: string;
     title: string;
     articleCover: string;
     articleTag?: string;
@@ -33,6 +33,7 @@ export namespace Article {
     articleReadNum?: number;
     sort: number;
     status: number;
+    createdAt: string;
   }
   export interface CreateArticle {
     title: string;

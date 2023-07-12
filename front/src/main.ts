@@ -6,7 +6,7 @@ import { setupStore } from './store';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
-import Particles from 'particles.vue3';
+import Particles from 'vue3-particles';
 
 const bootstrap = () => {
   const app = createApp(App);

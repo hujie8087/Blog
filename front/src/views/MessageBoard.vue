@@ -1,6 +1,6 @@
 <template>
   <div class="MessageBoardCover">
-    <MessageBoard :title="'欢迎您来'" />
+    <MessageBoard :title="'欢迎您来'" @submitMessage="submitMessage" />
   </div>
   <div class="BlogIndexContent">
     <div class="BlogFlex">
@@ -37,30 +37,24 @@ import CommentItem from '@/components/CommentItem.vue';
 import GitPart from '@/components/GitPart.vue';
 import BigBlock from '@/components/BigBlock.vue';
 import MessageBoard from '@/components/MessageBoard.vue';
+import { MessageType } from '@/types/message';
+import { accountMessage } from '@/api/message';
 
 const dialogTableVisible = ref(false);
-const CommentList = reactive([
-  {
-    _id: '1',
-    LocationCityName: '城市',
-    MessageLeaveDate: '2022-12-12 09:54:00',
-    MessageLeaveName: '姓名1',
-    MessageText: '留言内容',
-    clientIp: 'IP',
-    iconNo: 1,
-  },
-  {
-    _id: '2',
-    LocationCityName: '城市',
-    MessageLeaveDate: '2022-12-12 09:54:00',
-    MessageLeaveName: '姓名2',
-    MessageText: '留言内容',
-    clientIp: 'IP',
-    iconNo: 1,
-  },
-]);
+const CommentList = ref<MessageType[]>([]);
 const clickHandle = () => {
   dialogTableVisible.value = true;
+};
+onMounted(() => {
+  getMessageList();
+});
+const getMessageList = async () => {
+  const res = await accountMessage({ pageNum: 1, pageSize: 10 });
+  CommentList.value = res.data.list;
+};
+
+const submitMessage = () => {
+  getMessageList();
 };
 </script>
 <style lang="less">

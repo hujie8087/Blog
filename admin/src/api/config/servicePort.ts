@@ -6,6 +6,6 @@ export const MENU = "/menu";
 export const ROLE = "/role";
 export const USER = "/user";
 export const ARTICLE = "/articles";
-export const ARTICLETag = "/article-tag";
+export const ARTICLETag = "/article-tags";
 export const UPLOAD = "/upload";
 export const STATIC = "/static";

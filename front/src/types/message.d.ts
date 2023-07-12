@@ -1,5 +1,5 @@
 export interface MessageType {
-  id?: number;
+  _id: string;
   name: string;
   cityName: string;
   clientIp?: string;

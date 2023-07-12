@@ -14,17 +14,8 @@ export class ArticleTag {
   })
   readonly title: string;
 
-  @Prop({ default: new Date() })
-  readonly createTime: string;
-
-  @Prop({ default: new Date() })
-  readonly updateTime: string;
-
-  @Prop({ required: true })
-  readonly id: number;
-
   @Prop({ default: 0 })
-  readonly isDel: number;
+  readonly isDel: boolean;
 
   @Prop({ default: 0 })
   @ApiProperty({

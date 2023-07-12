@@ -24,10 +24,15 @@ export const getArticleById = (id: string) => {
 
 // 修改文章
 export const updateArticle = (params: Article.Article) => {
-  return http.put<ResultData>(ARTICLE, params);
+  return http.put<ResultData>(`${ARTICLE}/${params._id}`, params);
 };
 
 // 删除文章
-export const delArticle = (id: number) => {
+export const delArticle = (id: string) => {
   return http.delete<ResultData>(`${ARTICLE}/${id}`);
+};
+
+// 修改文章状态
+export const changeArticleStatus = (params: { id: string; status: boolean }) => {
+  return http.put<ResultData>(`${ARTICLE}/status/${params.id}`, { status: params.status });
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="ArticleItem">
     <div class="ArticleItemCover">
-      <img :src="article.articleCover" alt="" srcset="" />
+      <img :src="'api' + article.articleCover" alt="" srcset="" />
     </div>
     <div style="flex: 1 1 0%">
       <div class="ArticleTitle">
@@ -13,11 +13,11 @@
       <div class="ArticleFooter">
         <div class="ArticleFooterItem">
           <el-icon><CollectionTag /></el-icon>
-          {{ article.articleTag }}
+          {{ article.articleTag[0] }}
         </div>
         <div class="ArticleFooterItem">
           <el-icon><Clock /></el-icon>
-          {{ article.createDate }}
+          {{ article.createdAt }}
         </div>
         <div class="ArticleFooterItem">
           <el-icon><View /></el-icon>
@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs';
 defineProps(['article']);
 </script>
 
@@ -61,10 +62,14 @@ defineProps(['article']);
     width: 12rem;
     height: 7.5rem;
     margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-      width: 100%;
+      width: auto;
       height: 100%;
       border-radius: 2px;
+      display: block;
     }
   }
   .ArticleTitle {

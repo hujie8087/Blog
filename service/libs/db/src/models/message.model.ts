@@ -2,22 +2,37 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Prop, modelOptions } from '@typegoose/typegoose';
 import { IsInt, IsNotEmpty, IsString } from 'class-validator';
 
+interface Avatar {
+  bgColor: string;
+  hatColor: string;
+  faceColor: string;
+  hairColor: string;
+  shirtColor: string;
+  hairColorRandom: boolean;
+  sex: string;
+  earSize: string;
+  eyeType: string;
+  hatType: string;
+  hairType: string;
+  noseType: string;
+  mouthType: string;
+  shirtType: string;
+  glassesType: string;
+  shape: string;
+}
 @modelOptions({
   schemaOptions: {
     timestamps: true,
   },
 })
 export class Message {
-  @Prop({ required: true })
-  @ApiProperty({ description: '留言id' })
-  readonly id: number;
   @Prop({ default: '' })
   @ApiProperty({ description: '留言城市', example: '长沙' })
   @IsString()
   cityName: string;
   @Prop({ default: '' })
   @ApiProperty({ description: '留言姓名', example: '留言姓名' })
-  @IsNotEmpty({ message: '请填写留言内容' })
+  @IsNotEmpty({ message: '请填写留言姓名' })
   @IsString()
   name: string;
   @Prop({ default: '' })
@@ -32,8 +47,11 @@ export class Message {
   @Prop({ default: '' })
   @ApiProperty({ description: '留言头像', example: '0' })
   @IsInt()
-  iconNo: number;
+  avatar: Avatar;
   @Prop({ default: '' })
   @ApiProperty({ description: 'token' })
   token: string;
+  @Prop({ default: false })
+  @ApiProperty({ description: '是否删除', example: false })
+  isDel: boolean;
 }

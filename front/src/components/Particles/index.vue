@@ -1,7 +1,6 @@
 <template>
   <Particles
     id="tsparticles"
-    class="login-particles"
     :particlesInit="particlesInit"
     :options="options"
   />

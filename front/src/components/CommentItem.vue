@@ -1,19 +1,22 @@
 <template>
   <div class="CommentItem">
     <div class="CommentItemIcon">
-      <img src="../assets/images/message-avator.jpg" alt="" srcset="" />
+      <Avatar
+        style="width: 48px; height: 48px"
+        v-bind="{ ...comment.avatar }"
+      />
     </div>
     <div class="CommentItemContent">
       <div>
-        {{ comment.MessageLeaveName }}
+        {{ comment.name }}
         <span
-          ><el-icon><Location /></el-icon>{{ comment.LocationCityName }}</span
+          ><el-icon><Location /></el-icon>{{ comment.cityName }}</span
         >
       </div>
-      <div class="ArticleCommentText">{{ comment.MessageText }}</div>
+      <div class="ArticleCommentText">{{ comment.content }}</div>
       <div class="DateAnswer">
         <div class="DateAnswerLeft">
-          {{ comment.MessageLeaveDate }}
+          {{ setTimeFormate(comment.createdAt) }}
         </div>
         <div class="DateAnswerRight">
           <el-button link @click="replyHandle">回复</el-button>
@@ -25,11 +28,16 @@
 
 <script setup lang="ts">
 import Bus from '@/plugins/Bus.js';
+import dayjs from 'dayjs';
+import { Avatar } from 'holiday-avatar';
 const emit = defineEmits(['reply-handle']);
 const { comment } = defineProps(['comment']);
 const replyHandle = () => {
   Bus.emit('comment', comment);
   emit('reply-handle');
+};
+const setTimeFormate = (time: string) => {
+  return dayjs(time).format('YYYY-MM-DD HH:mm:ss');
 };
 </script>
 

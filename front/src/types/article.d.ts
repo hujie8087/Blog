@@ -1,5 +1,5 @@
 export interface ArticleType {
-  id?: number;
+  _id: string;
   title: string;
   articleCover: string;
   articleTag?: string;
@@ -19,6 +19,6 @@ export interface PageType {
 }
 
 export interface articleTagType {
-  id: number;
-  title: string;
+  value: number;
+  label: string;
 }

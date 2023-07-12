@@ -28,9 +28,10 @@ import { ColumnProps } from "@/components/ProTable/interface";
 import { useHandleData } from "@/hooks/useHandleData";
 import ProTable from "@/components/ProTable/index.vue";
 import { CirclePlus, Delete, EditPen, View } from "@element-plus/icons-vue";
-import { getArticleList, delArticle } from "@/api/modules/article/article";
+import { getArticleList, delArticle, changeArticleStatus } from "@/api/modules/article/article";
 import { Article } from "@/api/interface/article";
 import router from "@/routers";
+import dayjs from "dayjs";
 
 // 获取 ProTable 元素，调用其获取刷新数据方法（还能获取到当前查询参数，方便导出携带参数）
 const proTable = ref();
@@ -69,7 +70,6 @@ const getArticleStatus = [
 // 表格配置项
 const columns: ColumnProps<Article.Article>[] = [
   { type: "selection", fixed: "left", width: 80 },
-  { type: "index", label: "#", width: 80 },
   {
     prop: "title",
     label: "标签标题",
@@ -81,11 +81,7 @@ const columns: ColumnProps<Article.Article>[] = [
     render: scope => {
       return (
         <>
-          {scope.row.articleCover ? (
-            <el-image src={"api/" + scope.row.articleCover} style="width: 100px; height: 100px;" />
-          ) : (
-            "--"
-          )}
+          {scope.row.articleCover ? <el-image src={"api" + scope.row.articleCover} style="width: 100px; height: 100px;" /> : "--"}
         </>
       );
     }
@@ -123,6 +119,14 @@ const columns: ColumnProps<Article.Article>[] = [
     label: "排序"
   },
   {
+    prop: "createdAt",
+    label: "创建时间",
+    width: 200,
+    render: scope => {
+      return <>{scope.row.createdAt ? dayjs(scope.row.createdAt).format("YYYY-MM-DD HH:mm:ss") : "--"}</>;
+    }
+  },
+  {
     prop: "status",
     label: "标签状态",
     enum: getArticleStatus,
@@ -130,7 +134,15 @@ const columns: ColumnProps<Article.Article>[] = [
     render: scope => {
       return (
         <>
-          <el-tag type={scope.row.status ? "success" : "danger"}>{scope.row.status ? "启用" : "禁用"}</el-tag>
+          <el-switch
+            v-model={scope.row.status}
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            active-text={scope.row.status ? "启用" : "禁用"}
+            active-value={1}
+            inactive-value={0}
+            before-change={() => changeStatus(scope.row)}
+          ></el-switch>
         </>
       );
     }
@@ -146,9 +158,19 @@ const updateArticle = (id: string) => {
   router.push(`/article/create?id=${id}`);
 };
 
+const changeStatus = async (row: Article.Article) => {
+  await useHandleData(
+    changeArticleStatus,
+    { id: row._id, status: row.status === 0 ? 1 : 0 },
+    `切换【${row.title}】文章状态`
+  ).then(() => {
+    proTable.value.getTableList();
+  });
+};
+
 // 删除角色信息
 const deleteAccount = async (params: Article.Article) => {
-  await useHandleData(delArticle, { id: [params.id] }, `删除【${params.title}】角色`);
+  await useHandleData(delArticle, params._id, `删除【${params.title}】文章`);
   proTable.value.getTableList();
 };
 </script>

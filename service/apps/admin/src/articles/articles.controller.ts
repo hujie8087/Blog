@@ -3,11 +3,11 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   UseGuards,
   Query,
+  Put,
 } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { ApiHeader, ApiTags } from '@nestjs/swagger';
@@ -18,6 +18,14 @@ import { Article } from '@libs/db/models/article.model';
 @ApiTags('文章')
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
+
+  @Put('status/:id')
+  @UseGuards(JwtAuthGuardUser)
+  changeArticleStatus(@Param('id') id: string, @Body() query: any) {
+    console.log(query);
+
+    return this.articlesService.changeArticleStatus(id, query.status);
+  }
 
   @Post()
   @UseGuards(JwtAuthGuardUser)
@@ -39,7 +47,7 @@ export class ArticlesController {
     return this.articlesService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   @UseGuards(JwtAuthGuardUser)
   update(@Param('id') id: string, @Body() updateArticleDto: Article) {
     return this.articlesService.update(id, updateArticleDto);

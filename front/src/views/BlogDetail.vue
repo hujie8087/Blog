@@ -10,7 +10,7 @@
           <el-skeleton-item variant="image" style="width: 100%; height: 100%" />
         </template>
         <template #default>
-          <img :src="articleDetail?.articleCover" />
+          <img :src="'api' + articleDetail?.articleCover" />
         </template>
       </el-skeleton>
     </div>
@@ -50,10 +50,10 @@ const articleDetail = ref<ArticleType>();
 onBeforeMount(() => {
   let queryId = router.currentRoute.value.query.id;
   if (queryId) {
-    getDetail(+queryId);
+    getDetail(queryId as string);
   }
 });
-const getDetail = async (id: number) => {
+const getDetail = async (id: string) => {
   const { data } = await getArticleDetail(id);
   articleDetail.value = data;
   loading.value = false;

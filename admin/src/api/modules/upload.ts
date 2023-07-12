@@ -7,7 +7,7 @@ import http from "@/api";
  */
 // 图片上传
 export const uploadImg = (params: FormData) => {
-  return http.post<Upload.ResFileUrl>(UPLOAD + `/album`, params);
+  return http.post<Upload.ResFileUrl>(UPLOAD, params);
 };
 
 // 视频上传

@@ -10,50 +10,63 @@
       <div>
         {{ comment.name }}
         <span
-          ><el-icon><Location /></el-icon>{{ comment.cityName }}</span
+          v-if="comment.replyName && comment.replyId !== comment.replyRootId"
         >
+          <el-icon><CaretRight /></el-icon>
+          {{ comment.replyName }}
+        </span>
       </div>
       <div class="ArticleCommentText">{{ comment.content }}</div>
       <div class="DateAnswer">
         <div class="DateAnswerLeft">
           {{ setTimeFormate(comment.createdAt) }}
+          <span
+            ><el-icon><Location /></el-icon>{{ comment.cityName }}</span
+          >
         </div>
         <div class="DateAnswerRight">
           <el-button link @click="replyHandle">回复</el-button>
         </div>
       </div>
+      <div v-if="replayBox">
+        <MessageBoard
+          :comment="comment"
+          :placeholder="`回复:${comment.name}`"
+          @submitMessage="submitMessage"
+        />
+      </div>
+      <slot name="reply"> </slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Bus from '@/plugins/Bus.js';
 import dayjs from 'dayjs';
 import { Avatar } from 'holiday-avatar';
-const emit = defineEmits(['reply-handle']);
+import MessageBoard from './MessageBoard.vue';
+import { MessageType } from '@/types/message';
 const { comment } = defineProps(['comment']);
+const replayBox = ref(false);
+const emit = defineEmits(['submitMessage']);
 const replyHandle = () => {
-  Bus.emit('comment', comment);
-  emit('reply-handle');
+  replayBox.value = !replayBox.value;
 };
 const setTimeFormate = (time: string) => {
   return dayjs(time).format('YYYY-MM-DD HH:mm:ss');
+};
+const submitMessage = (data: MessageType) => {
+  emit('submitMessage', data);
+  replayBox.value = false;
 };
 </script>
 
 <style scoped lang="less">
 .CommentItem {
-  border-bottom: 1px solid #e9e9e9;
   display: flex;
   align-items: 'middle';
   padding: 1rem;
   .CommentItemIcon {
     margin-right: 0.5rem;
-    img {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 1rem;
-    }
   }
   .CommentItemContent {
     font-size: 0.9rem;

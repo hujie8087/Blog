@@ -35,9 +35,9 @@ dependencies:
   vue:
     specifier: ^3.2.37
     version: 3.2.37
-  vue3-particles:
-    specifier: ^2.10.1
-    version: 2.10.1
+  vue3-emoji:
+    specifier: ^2.0.0
+    version: 2.0.0(vue@3.2.37)
 
 devDependencies:
   '@commitlint/cli':
@@ -2840,11 +2840,12 @@ packages:
       typescript: 4.6.4
     dev: true
 
-  /vue3-particles@2.10.1:
-    resolution: {integrity: sha512-rOTkPAy++gEHXfB1I4WdyJTEk1qKc5y6can2Ar0L3VAyBb75wW2LU4o7uSqS28XzlORFqz7SygX6FOvkMK9R3Q==}
+  /vue3-emoji@2.0.0(vue@3.2.37):
+    resolution: {integrity: sha512-vqhvqE9stVUC2sa0H7z1n4GLUq2zzeCmGCw52vy9lbiMEDHQlSmnMxA1O7E8e/FG/anolBTp4IF4oaTnNv3LFg==}
+    peerDependencies:
+      vue: ^3.0.0
     dependencies:
-      tsparticles-engine: 2.10.1
-      vue: 3.3.4
+      vue: 3.2.37
     dev: false
 
   /vue@3.2.37:

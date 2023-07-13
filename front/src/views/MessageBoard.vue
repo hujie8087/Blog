@@ -1,17 +1,48 @@
 <template>
   <div class="MessageBoardCover">
-    <MessageBoard :title="'欢迎您来'" @submitMessage="submitMessage" />
+    <MessageBoard
+      :title="'欢迎您来'"
+      placeholder="欢迎留下您的脚印！"
+      @submitMessage="submitMessage"
+    />
   </div>
   <div class="BlogIndexContent">
     <div class="BlogFlex">
       <div class="BlogIndexContentLeft">
         <div class="CommentList">
           <CommentItem
-            v-for="item in CommentList"
+            v-for="(item, index) in CommentList"
             :comment="item"
             :key="item._id"
-            @reply-handle="clickHandle"
-          ></CommentItem>
+            @submitMessage="submitMessage"
+          >
+            <template #reply>
+              <div class="ReplyBox">
+                <CommentItem
+                  v-for="reply in item.replyList"
+                  class="ReplyItem"
+                  :comment="reply"
+                  :key="item._id"
+                />
+                <el-button
+                  v-if="item.replyNum && item.replyNum > 2 && item.replyNum < 5"
+                  type="info"
+                  text
+                  bg
+                  @click="getAllMessage(item, index)"
+                  >展开其他 {{ item.replyNum - 2 }} 条回复</el-button
+                >
+                <el-button
+                  v-else-if="item.replyNum && item.replyNum > 4"
+                  type="info"
+                  text
+                  bg
+                  @click="getAllMessage(item, index)"
+                  >查看全部 {{ item.replyNum }} 条回复</el-button
+                >
+              </div>
+            </template>
+          </CommentItem>
         </div>
       </div>
       <div class="BlogIndexContentRight">
@@ -22,14 +53,6 @@
       </div>
     </div>
   </div>
-  <el-dialog
-    v-model="dialogTableVisible"
-    destroy-on-close
-    class="replyBox"
-    width="42rem"
-  >
-    <MessageBoard :title="'回复留言'" />
-  </el-dialog>
 </template>
 
 <script setup lang="ts">
@@ -38,13 +61,10 @@ import GitPart from '@/components/GitPart.vue';
 import BigBlock from '@/components/BigBlock.vue';
 import MessageBoard from '@/components/MessageBoard.vue';
 import { MessageType } from '@/types/message';
-import { accountMessage } from '@/api/message';
+import { accountMessage, getAllComment } from '@/api/message';
 
-const dialogTableVisible = ref(false);
 const CommentList = ref<MessageType[]>([]);
-const clickHandle = () => {
-  dialogTableVisible.value = true;
-};
+
 onMounted(() => {
   getMessageList();
 });
@@ -56,11 +76,16 @@ const getMessageList = async () => {
 const submitMessage = () => {
   getMessageList();
 };
+const getAllMessage = async (item: MessageType, index: number) => {
+  const res = await getAllComment(item._id);
+  CommentList.value[index].replyList?.push(...res.data.list);
+  CommentList.value[index].replyNum = 0;
+};
 </script>
 <style lang="less">
-.replyBox {
-  .el-dialog__body {
-    padding: 0;
+.ReplyBox {
+  .ReplyItem {
+    padding: 1rem 0;
   }
 }
 </style>

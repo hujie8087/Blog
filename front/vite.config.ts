@@ -21,6 +21,7 @@ export default defineConfig({
     },
   },
   server: {
+    hmr: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3001',

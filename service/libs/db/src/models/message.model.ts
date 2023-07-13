@@ -54,4 +54,16 @@ export class Message {
   @Prop({ default: false })
   @ApiProperty({ description: '是否删除', example: false })
   isDel: boolean;
+  @Prop({ default: '' })
+  @ApiProperty({ description: '回复id', example: '' })
+  replyId: string;
+  @Prop({ default: '' })
+  @ApiProperty({ description: '回复姓名', example: '' })
+  replyName: string;
+  @Prop({ default: '' })
+  @ApiProperty({ description: '回复根id', example: '' })
+  replyRootId?: string;
+
+  replyList?: Message[];
+  replyNum?: number;
 }

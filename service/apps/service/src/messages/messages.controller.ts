@@ -23,6 +23,11 @@ export class MessagesController {
     return this.messagesService.create(createMessageDto);
   }
 
+  @Get('childComment/:id')
+  findChildCommentById(@Param('id') id: string) {
+    return this.messagesService.getAllComment(id);
+  }
+
   @Get()
   findAll(@Query() query: any) {
     return this.messagesService.findAll(query);

@@ -7,6 +7,11 @@ export interface MessageType {
   content: string;
   createDate: string;
   token?: string;
+  replyId?: string;
+  replyRootId?: string;
+  replyList?: MessageType[];
+  replyNum?: number;
+  replyName?: string;
 }
 
 export interface CreateMessage {

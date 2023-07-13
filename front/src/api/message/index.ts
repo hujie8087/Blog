@@ -7,6 +7,7 @@ enum Api {
   getMessageList = '/messages',
   getMessageDetail = '/messages',
   postMessage = '/messages',
+  getAllMessage = '/messages/childComment',
   getCityName = 'https://restapi.amap.com/v3/ip?ip=114.247.50.2&key=63accee3b61b553cc4cd4252f2a3b7e4',
 }
 
@@ -39,6 +40,13 @@ export const postMessage = (param: CreateMessage) => {
 export const getCityName = () => {
   return request({
     url: Api.postMessage,
+    method: 'get',
+  });
+};
+
+export const getAllComment = (id: string) => {
+  return request<ResList<MessageType[]>>({
+    url: `${Api.getAllMessage}/${id}`,
     method: 'get',
   });
 };

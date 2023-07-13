@@ -18,7 +18,8 @@
     "mitt": "^3.0.0",
     "particles.vue3": "^2.6.0",
     "tsparticles": "^2.6.0",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue3-emoji": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

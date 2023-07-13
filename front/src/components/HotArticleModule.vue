@@ -6,7 +6,7 @@
     <div class="HotArticle">
       <div
         v-for="(item, index) in props.hotArticleList"
-        :key="item.id"
+        :key="item._id"
         class="HotArticleItem"
       >
         <div>

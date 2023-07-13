@@ -3,7 +3,7 @@
     <div class="WriteMessageFrameLeft">
       <HldAvatar
         id="HldAvatar"
-        style="width: 4rem; height: 4rem"
+        style="width: 48px; height: 48px"
         v-bind="config"
         :key="count"
       />
@@ -127,10 +127,17 @@
       <el-form ref="messageForm" :model="form" :rules="rules">
         <el-form-item prop="content">
           <el-input
+            ref="formContent"
             v-model="form.content"
             :rows="4"
             type="textarea"
-            placeholder="欢迎留下您的脚印！"
+            :placeholder="placeholder"
+          />
+          <V3Emoji
+            size="mid"
+            :options-name="optionsName"
+            :recent="true"
+            @click-emoji="appendText"
           />
         </el-form-item>
         <el-form-item class="OpenMessageSubmit" prop="name">
@@ -152,37 +159,50 @@
 </template>
 
 <script setup lang="ts">
-import Bus from '@/plugins/Bus.js';
 import { postMessage } from 'api/message';
-import { FormInstance, FormRules } from 'element-plus';
+import { ElMessage, FormInstance, FormRules } from 'element-plus';
+import V3Emoji from 'vue3-emoji';
+import 'vue3-emoji/dist/style.css';
 import { Avatar as HldAvatar, genConfig } from 'holiday-avatar';
 import axios from 'axios';
 import { ref } from 'vue';
 
-const userInfo = localStorage.getItem('jaydenBlog');
+const userInfo = computed(() => localStorage.getItem('jaydenBlog'));
 const count = ref(0);
-const config = ref(userInfo ? JSON.parse(userInfo).avatar : genConfig());
+const config = ref(
+  userInfo.value ? JSON.parse(userInfo.value).avatar : genConfig()
+);
 const avatarConfig = ref(config.value);
-const { title } = defineProps(['title']);
+const { title, comment, placeholder } = defineProps([
+  'title',
+  'comment',
+  'placeholder',
+]);
 const emit = defineEmits(['submitMessage']);
 const visible = ref(false);
 const form = reactive({
-  name: userInfo ? JSON.parse(userInfo).name : '',
+  name: userInfo.value ? JSON.parse(userInfo.value).name : '',
   content: '',
   cityName: '',
-  replyId: '',
+  replyId: comment?._id || '',
   avatar: {},
 });
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '请输入您的姓名或昵称', trigger: 'blur' }],
   content: [{ required: true, message: '请输入您的留言内容', trigger: 'blur' }],
 });
-onMounted(() => {
-  Bus.on('comment', (e: any) => {
-    form.replyId = e._id;
-    form.content = '@' + e.MessageLeaveName;
-  });
-});
+
+const optionsName = {
+  'Smileys & Emotion': '笑脸&表情',
+  'Food & Drink': '食物&饮料',
+  'Animals & Nature': '动物&自然',
+  'Travel & Places': '旅行&地点',
+  'People & Body': '人物&身体',
+  Objects: '物品',
+  Symbols: '符号',
+  Flags: '旗帜',
+  Activities: '活动',
+};
 
 watch(
   () => avatarConfig.value,
@@ -204,15 +224,13 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
   await formEl.validate(async (valid, fields) => {
     if (valid) {
       form.avatar = config.value;
-      const { data } = await axios.get(
-        'https://restapi.amap.com/v3/ip?ip=114.247.50.2&key=63accee3b61b553cc4cd4252f2a3b7e4'
-      );
-      form.cityName = data.city;
+      // const { data } = await axios.get(
+      //   'https://restapi.amap.com/v3/ip?ip=114.247.50.2&key=63accee3b61b553cc4cd4252f2a3b7e4'
+      // );
+      // form.cityName = data.city;
+      form.cityName = '上海';
       const res = await postMessage(form);
       if (res.code === 200) {
-        messageForm.value?.resetFields();
-        Bus.emit('message', res.data);
-        emit('submitMessage');
         localStorage.setItem(
           'jaydenBlog',
           JSON.stringify({
@@ -220,13 +238,23 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
             avatar: form.avatar,
           })
         );
+        ElMessage({
+          message: '留言成功',
+          offset: 100,
+          type: 'success',
+        });
+        messageForm.value?.resetFields();
+        emit('submitMessage');
       }
     }
   });
 };
-onBeforeUnmount(() => {
-  Bus.off('comment');
-});
+const formContent = ref();
+const appendText = (emoji: any) => {
+  const start = formContent.value.$el.children[0].selectionStart;
+  form.content =
+    form.content.slice(0, start) + emoji + form.content.slice(start);
+};
 </script>
 
 <style scoped lang="less">
@@ -237,10 +265,9 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: start;
   padding: 1.5rem 1.5rem 1.5rem 1rem;
-  overflow: hidden;
   box-sizing: border-box;
   .WriteMessageFrameLeft {
-    width: 4rem;
+    width: 48px;
     margin-right: 0.5rem;
     font-size: 0.4rem;
     .title {
@@ -252,6 +279,14 @@ onBeforeUnmount(() => {
       margin: 0.4rem 0;
       font-size: 0.4rem;
     }
+  }
+
+  .emoji-item {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 35px;
+    height: 35px;
   }
   .OpenMessageSubmit {
     display: flex;

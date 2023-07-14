@@ -44,9 +44,10 @@ export const getCityName = () => {
   });
 };
 
-export const getAllComment = (id: string) => {
+export const getAllComment = (id: string, page: PageType) => {
   return request<ResList<MessageType[]>>({
     url: `${Api.getAllMessage}/${id}`,
     method: 'get',
+    params: page,
   });
 };

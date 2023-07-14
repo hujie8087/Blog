@@ -260,7 +260,6 @@ const appendText = (emoji: any) => {
 <style scoped lang="less">
 .WriteMessageFrameFadeOut {
   background-color: #fff;
-  width: 42rem;
   margin: auto;
   display: flex;
   align-items: start;

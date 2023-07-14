@@ -2,22 +2,27 @@
   <div class="TimeLineTr">
     <div class="TimeLineTdLeft">
       <div class="Bubble bubble-margin" v-if="!(index % 2)">
-        <span class="TimeLineTime">{{ timeInfo.CreateDate }}</span>
-        {{ timeInfo.TextContent }}
+        <span class="TimeLineTime">{{ setTimeFormat(timeInfo.time) }}</span>
+        {{ timeInfo.title }}
       </div>
     </div>
     <div class="TimeLineTdCenter"></div>
     <div class="TimeLineTdRight">
       <div class="BubbleRight bubble-right-margin" v-if="index % 2">
-        <span class="TimeLineTime">{{ timeInfo.CreateDate }}</span>
-        {{ timeInfo.TextContent }}
+        <span class="TimeLineTime">{{ setTimeFormat(timeInfo.time) }}</span>
+        {{ timeInfo.title }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs';
+
 const { timeInfo, index } = defineProps(['timeInfo', 'index']);
+const setTimeFormat = (time: string) => {
+  return dayjs(time).format('YYYY-MM-DD');
+};
 </script>
 
 <style scoped lang="less">

@@ -4,14 +4,21 @@
       :title="'欢迎您来'"
       placeholder="欢迎留下您的脚印！"
       @submitMessage="submitMessage"
+      style="width: 42rem"
     />
   </div>
   <div class="BlogIndexContent">
     <div class="BlogFlex">
       <div class="BlogIndexContentLeft">
-        <div class="CommentList">
+        <div
+          class="CommentList"
+          v-infinite-scroll="load"
+          style="overflow: auto"
+          :infinite-scroll-disabled="disabled"
+          :style="{ overflow: disabled ? 'hidden' : 'auto' }"
+        >
           <CommentItem
-            v-for="(item, index) in CommentList"
+            v-for="(item, index) in commentList"
             :comment="item"
             :key="item._id"
             @submitMessage="submitMessage"
@@ -37,7 +44,7 @@
                   type="info"
                   text
                   bg
-                  @click="getAllMessage(item, index)"
+                  @click="showAllMessage(item)"
                   >查看全部 {{ item.replyNum }} 条回复</el-button
                 >
               </div>
@@ -53,6 +60,7 @@
       </div>
     </div>
   </div>
+  <AllMessage ref="allMessage"></AllMessage>
 </template>
 
 <script setup lang="ts">
@@ -62,24 +70,48 @@ import BigBlock from '@/components/BigBlock.vue';
 import MessageBoard from '@/components/MessageBoard.vue';
 import { MessageType } from '@/types/message';
 import { accountMessage, getAllComment } from '@/api/message';
+import AllMessage from '@/components/AllMessage.vue';
 
-const CommentList = ref<MessageType[]>([]);
+const commentList = ref<MessageType[]>([]);
+
+const page = reactive({
+  pageNum: 1,
+  pageSize: 10,
+});
 
 onMounted(() => {
   getMessageList();
 });
+const total = ref(0);
+const disabled = computed(() => commentList.value.length >= total.value);
 const getMessageList = async () => {
-  const res = await accountMessage({ pageNum: 1, pageSize: 10 });
-  CommentList.value = res.data.list;
+  const res = await accountMessage(page);
+  total.value = res.data.total;
+  if (page.pageNum === 1) {
+    commentList.value = [];
+  }
+  commentList.value.push(...res.data.list);
+};
+
+const load = async () => {
+  if (commentList.value.length >= total.value) return;
+  page.pageNum++;
+  getMessageList();
 };
 
 const submitMessage = () => {
+  page.pageNum = 1;
   getMessageList();
 };
+
 const getAllMessage = async (item: MessageType, index: number) => {
-  const res = await getAllComment(item._id);
-  CommentList.value[index].replyList?.push(...res.data.list);
-  CommentList.value[index].replyNum = 0;
+  const res = await getAllComment(item._id, { pageNum: 1, pageSize: 2 });
+  commentList.value[index].replyList?.push(...res.data.list);
+  commentList.value[index].replyNum = 0;
+};
+const allMessage = ref();
+const showAllMessage = async (item: MessageType) => {
+  allMessage.value.acceptParams(item);
 };
 </script>
 <style lang="less">

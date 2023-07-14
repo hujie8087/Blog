@@ -60,6 +60,8 @@ export const useTable = (
       Object.assign(state.totalParam, initParam, isPageable ? pageParam.value : {});
       let { data } = await api({ ...state.searchInitParam, ...state.totalParam });
       dataCallBack && (data = dataCallBack(data));
+      console.log("我是后台返回的数据", data);
+
       state.tableData = isPageable ? data.list : data;
       // 解构后台返回的分页数据 (如果有分页更新分页信息)
       const { pageNum, pageSize, total } = data;

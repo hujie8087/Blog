@@ -9,6 +9,9 @@ import { MessagesModule } from './messages/messages.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { AuthModule } from './auth/auth.module';
 import { ArticleTagsModule } from './article-tags/article-tags.module';
+import { TimelineController } from './timeline/timeline.controller';
+import { TimelineModule } from './timeline/timeline.module';
+import { TimelineService } from './timeline/timeline.service';
 
 @Module({
   imports: [
@@ -21,8 +24,9 @@ import { ArticleTagsModule } from './article-tags/article-tags.module';
     }),
     AuthModule,
     ArticleTagsModule,
+    TimelineModule,
   ],
-  controllers: [AdminController, MessagesController],
-  providers: [AdminService],
+  controllers: [AdminController, MessagesController, TimelineController],
+  providers: [AdminService, TimelineService],
 })
 export class AdminModule {}

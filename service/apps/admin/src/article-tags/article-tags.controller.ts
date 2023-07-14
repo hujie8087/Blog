@@ -10,8 +10,10 @@ import {
 } from '@nestjs/common';
 import { ArticleTagsService } from './article-tags.service';
 import { ArticleTag } from '@libs/db/models/articleTag.model';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('article-tags')
+@ApiTags('文章标签')
 export class ArticleTagsController {
   constructor(private readonly articleTagsService: ArticleTagsService) {}
 

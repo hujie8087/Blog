@@ -66,4 +66,5 @@ export class Message {
 
   replyList?: Message[];
   replyNum?: number;
+  _doc?: Message;
 }

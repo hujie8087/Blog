@@ -8,4 +8,6 @@ export const USER = "/user";
 export const ARTICLE = "/articles";
 export const ARTICLETag = "/article-tags";
 export const UPLOAD = "/upload";
+export const MESSAGE = "/message";
 export const STATIC = "/static";
+export const TIMELINE = "/timeline";

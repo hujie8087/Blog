@@ -24,27 +24,12 @@ export class MessagesController {
   }
 
   @Get('childComment/:id')
-  findChildCommentById(@Param('id') id: string) {
-    return this.messagesService.getAllComment(id);
+  findChildCommentById(@Param('id') id: string, @Query() query: any) {
+    return this.messagesService.getAllComment(id, query);
   }
 
   @Get()
   findAll(@Query() query: any) {
     return this.messagesService.findAll(query);
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.messagesService.findOne(id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMessageDto: Message) {
-    return this.messagesService.update(id, updateMessageDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.messagesService.remove(id);
   }
 }

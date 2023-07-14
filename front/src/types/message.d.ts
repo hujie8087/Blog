@@ -1,3 +1,21 @@
+export interface AvatarType {
+  bgColor: string;
+  hatColor: string;
+  faceColor: string;
+  hairColor: string;
+  shirtColor: string;
+  hairColorRandom: boolean;
+  sex: string;
+  earSize: string;
+  eyeType: string;
+  hatType: string;
+  hairType: string;
+  noseType: string;
+  mouthType: string;
+  shirtType: string;
+  glassesType: string;
+  shape: string;
+}
 export interface MessageType {
   _id: string;
   name: string;
@@ -5,13 +23,14 @@ export interface MessageType {
   clientIp?: string;
   iconNo?: number;
   content: string;
-  createDate: string;
+  createdAt: string;
   token?: string;
   replyId?: string;
   replyRootId?: string;
   replyList?: MessageType[];
   replyNum?: number;
   replyName?: string;
+  avatar?: AvatarType;
 }
 
 export interface CreateMessage {

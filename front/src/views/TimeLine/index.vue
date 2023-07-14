@@ -23,29 +23,25 @@
 </template>
 
 <script setup lang="ts">
+import { accountTimeLine } from '@/api/timeline';
 import Clock from './Clock.vue';
 import TimeItem from './TimeItem.vue';
+import { PageType } from '@/types/article';
+import { TimeLineType } from '@/types/timeLine';
 
-const timeLineList = reactive([
-  {
-    CreateDate: '2022-12-13',
-    TextContent: '内容',
-    Token: 'token',
-    _id: '1',
-  },
-  {
-    CreateDate: '2022-12-13',
-    TextContent: '内容',
-    Token: 'token',
-    _id: '2',
-  },
-  {
-    CreateDate: '2022-12-13',
-    TextContent: '内容',
-    Token: 'token',
-    _id: '3',
-  },
-]);
+const timeLineList = ref<TimeLineType[]>([]);
+
+const page = reactive<PageType>({
+  pageNum: 1,
+  pageSize: 10,
+});
+
+const getTimeLineList = async () => {
+  const res = await accountTimeLine(page);
+  timeLineList.value = res.data;
+  console.log(res.data);
+};
+getTimeLineList();
 </script>
 
 <style scoped lang="less">

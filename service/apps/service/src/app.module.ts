@@ -6,6 +6,7 @@ import { DbModule } from '@libs/db';
 import { MulterModule } from '@nestjs/platform-express';
 import { ArticleTagsModule } from './article-tags/article-tags.module';
 import { MessagesModule } from './messages/messages.module';
+import { TimelineModule } from './timeline/timeline.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { MessagesModule } from './messages/messages.module';
     }),
     ArticleTagsModule,
     MessagesModule,
+    TimelineModule,
   ],
   controllers: [AppController],
   providers: [AppService],

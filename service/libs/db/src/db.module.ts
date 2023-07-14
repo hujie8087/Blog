@@ -5,8 +5,15 @@ import { User } from './models/user.model';
 import { Article } from './models/article.model';
 import { ArticleTag } from './models/articleTag.model';
 import { Message } from './models/message.model';
+import { TimeLine } from './models/timeLine.model';
 
-const models = TypegooseModule.forFeature([User, Article, ArticleTag, Message]);
+const models = TypegooseModule.forFeature([
+  User,
+  Article,
+  ArticleTag,
+  Message,
+  TimeLine,
+]);
 
 @Global()
 @Module({

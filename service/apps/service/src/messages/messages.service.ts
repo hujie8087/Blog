@@ -1,6 +1,5 @@
 import { Message } from '@libs/db/models/message.model';
 import { Injectable, Logger } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
 import { Model } from 'mongoose';
 import { InjectModel } from 'nestjs-typegoose';
 import { IResponse } from 'libs/interface/response.interface';
@@ -40,9 +39,14 @@ export class MessagesService {
       .sort('-createdAt')
       .skip(pageNum ? (pageNum - 1) * pageSize : 0)
       .limit(pageSize);
-
+    const total = await this.messageModel.countDocuments({
+      ...params,
+      isDel: false,
+      replyId: '',
+    });
     const result = await Promise.all(
       data.map(async (item) => {
+        item = item.toObject();
         const replyList = await this.messageModel
           .find({
             replyRootId: item._id,
@@ -53,7 +57,8 @@ export class MessagesService {
           replyRootId: item._id,
           isDel: false,
         });
-        return { ...item._doc, replyList, replyNum };
+
+        return { ...item, replyList, replyNum };
       }),
     );
 
@@ -62,6 +67,7 @@ export class MessagesService {
       msg: '留言列表',
       data: {
         list: result,
+        total,
         pageNum: +pageNum,
         pageSize: +pageSize,
       },
@@ -69,14 +75,15 @@ export class MessagesService {
     return this.response;
   }
 
-  async getAllComment(id: string) {
+  async getAllComment(id: string, query) {
+    const { pageNum, pageSize } = query;
     const replyList = await this.messageModel
       .find({
         replyRootId: id,
         isDel: false,
       })
-      .skip(2);
-
+      .skip(pageNum ? (pageNum - 1) * pageSize : 0)
+      .limit(pageSize);
     this.response = {
       code: 200,
       msg: '留言列表',
@@ -85,17 +92,5 @@ export class MessagesService {
       },
     };
     return this.response;
-  }
-
-  findOne(id: string) {
-    return `This action returns a #${id} message`;
-  }
-
-  update(id: string, updateMessageDto: Message) {
-    return `This action updates a #${id} message`;
-  }
-
-  remove(id: string) {
-    return `This action removes a #${id} message`;
   }
 }

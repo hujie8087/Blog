@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router';
 import Layout from '@/layout/default.vue';
 // 路由规则
-const routes: RouteRecordRaw[] = [
+const common: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'login',
@@ -46,4 +46,4 @@ const routes: RouteRecordRaw[] = [
   },
 ];
 
-export default routes;
+export default common;

@@ -10,7 +10,7 @@ export interface ArticleType {
   articleReadNum?: number;
   sort: number;
   token: string;
-  status: number;
+  status?: number;
 }
 
 export interface PageType {

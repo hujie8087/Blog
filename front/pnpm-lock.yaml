@@ -38,6 +38,9 @@ dependencies:
   vue3-emoji:
     specifier: ^2.0.0
     version: 2.0.0(vue@3.2.37)
+  vue3-particles:
+    specifier: ^2.11.0
+    version: 2.11.0
 
 devDependencies:
   '@commitlint/cli':
@@ -2395,6 +2398,11 @@ packages:
     requiresBuild: true
     dev: false
 
+  /tsparticles-engine@2.11.0:
+    resolution: {integrity: sha512-kL6aV/6TPNF3jU6ni8jBGSVdnXAvxaeGsFalR4h+L3uMPlmbRKVs/QSnG3shwWGdWJuFmPSmXC8nI1OIWCUYpA==}
+    requiresBuild: true
+    dev: false
+
   /tsparticles-interaction-external-attract@2.10.1:
     resolution: {integrity: sha512-n/G8YWmoBc8CxZgwPwRA858bWe0dyl/7HS7sUi72m64ptzZlMEcUzfMD6v+PoqTsypLRLN4vWIiGoczkZKxOuw==}
     dependencies:
@@ -2846,6 +2854,13 @@ packages:
       vue: ^3.0.0
     dependencies:
       vue: 3.2.37
+    dev: false
+
+  /vue3-particles@2.11.0:
+    resolution: {integrity: sha512-9M07UlzJpfQzLnagyDdRji/tMRZlCc/xnbJKlzYOfzlDD+zkXzgLgyZwaYROcbF8AnTSX/DBcptxvgBmAqS0PA==}
+    dependencies:
+      tsparticles-engine: 2.11.0
+      vue: 3.3.4
     dev: false
 
   /vue@3.2.37:

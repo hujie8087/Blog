@@ -7,11 +7,12 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 import Particles from 'vue3-particles';
+// import Particles from 'particles.vue3';
 
 const bootstrap = () => {
   const app = createApp(App);
   app.use(ElementPlus);
-  app.use(Particles as any);
+  app.use(Particles);
   // 安装store
   setupStore(app);
   // 安装初始化路由

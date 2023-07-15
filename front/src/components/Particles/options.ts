@@ -6,6 +6,7 @@ export const options = {
   },
   fpsLimit: 60,
   interactivity: {
+    detectsOn: 'canvas',
     events: {
       onClick: {
         enable: true,
@@ -23,6 +24,7 @@ export const options = {
         duration: 2,
         opacity: 0.8,
         size: 40,
+        speed: 3,
       },
       push: {
         quantity: 4,
@@ -45,7 +47,7 @@ export const options = {
       width: 1, //线条宽度。
     },
     collisions: {
-      enable: false,
+      enable: true,
     },
     move: {
       direction: 'none',

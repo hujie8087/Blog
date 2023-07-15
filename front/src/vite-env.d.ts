@@ -7,3 +7,5 @@ declare module '*.vue' {
 }
 
 declare module '@/plugins/Bus.js';
+declare module 'vue3-particles';
+declare module 'particles.vue3';

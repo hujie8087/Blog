@@ -11,7 +11,12 @@
       </div>
     </div>
   </div>
-  <div class="TimeLineCardList">
+  <div
+    class="TimeLineCardList"
+    v-infinite-scroll="load"
+    :infinite-scroll-disabled="disabled"
+    :style="{ overflow: disabled ? 'hidden' : 'auto' }"
+  >
     <time-item
       v-for="(item, index) in timeLineList"
       :key="item._id"
@@ -36,10 +41,20 @@ const page = reactive<PageType>({
   pageSize: 10,
 });
 
+const total = ref<number>(0);
+const disabled = computed(() => timeLineList.value.length >= total.value);
 const getTimeLineList = async () => {
   const res = await accountTimeLine(page);
-  timeLineList.value = res.data;
-  console.log(res.data);
+  if (page.pageNum === 1) {
+    timeLineList.value = [];
+  }
+  timeLineList.value.push(...res.data.list);
+  total.value = res.data.total;
+};
+const load = async () => {
+  if (timeLineList.value.length >= total.value) return;
+  page.pageNum++;
+  getTimeLineList();
 };
 getTimeLineList();
 </script>

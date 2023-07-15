@@ -44,14 +44,14 @@
             class="iconfont icon-qianduankaifa"
             style="color: rgb(148, 138, 236)"
           ></i
-          >用户端手写的UI组件 + Vue.js，管理端使用ElementUI + Vue.js
+          >用户端基于elementUI组件编写的UI，管理端使用GeekerAdmin一款基于vue3+typescript的后台管理系统。
         </p>
         <p>
           <i
             class="iconfont icon-servicer-full"
             style="color: rgb(247, 142, 61)"
           ></i
-          >服务端语言使用node.js、框架使用Express，博客部署在腾讯云、使用Linux服务器。
+          >服务端语言使用node.js、框架使用nestjs，博客部署在腾讯云、使用Linux服务器。
         </p>
         <p>
           <i class="iconfont icon-shujuku" style="color: rgb(61, 184, 193)"></i
@@ -83,7 +83,7 @@
         </p>
         <p>
           <i class="iconfont icon-gongju" style="color: rgb(247, 142, 61)"></i
-          >熟悉的技术有：ElementUI、Vue.js、Node.js、JavaScript、react.js。
+          >熟悉的技术有：HTML、CSS、JavaScript、ElementUI、Vue.js、Node.js、react.js、typescript。
         </p>
         <p>
           <el-icon style="color: rgb(148, 138, 236)"

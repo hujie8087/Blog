@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Prop, modelOptions } from '@typegoose/typegoose';
-import { IsInt, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 interface Avatar {
   bgColor: string;
@@ -44,9 +44,8 @@ export class Message {
   @ApiProperty({ description: '留言IP', example: '留言IP' })
   @IsString()
   clientIp: string;
-  @Prop({ default: '' })
-  @ApiProperty({ description: '留言头像', example: '0' })
-  @IsInt()
+  @Prop({ ref: () => 'Avatar' })
+  @ApiProperty({ description: '留言头像' })
   avatar: Avatar;
   @Prop({ default: '' })
   @ApiProperty({ description: 'token' })

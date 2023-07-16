@@ -56,7 +56,6 @@ export class MessagesService {
           replyRootId: item._id,
           isDel: false,
         });
-
         return { ...item._doc, replyList, replyNum };
       }),
     );

@@ -67,7 +67,7 @@ export class User {
   })
   readonly avatar: string;
 
-  @Prop({ default: '' })
+  @Prop({ type: () => [String], default: [] })
   @ApiProperty({
     description: '角色',
     example: '角色',

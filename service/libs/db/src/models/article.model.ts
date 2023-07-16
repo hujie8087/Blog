@@ -13,7 +13,7 @@ export class Article {
   @ApiProperty({ description: '文章图片', example: '文章图片' })
   @IsString()
   articleCover: string;
-  @Prop([ArticleTag])
+  @Prop({ type: () => [ArticleTag] })
   @ApiProperty({ description: '文章关联标签', example: '文章关联标签' })
   articleTag: Ref<ArticleTag>[];
   @Prop({ default: 0 })

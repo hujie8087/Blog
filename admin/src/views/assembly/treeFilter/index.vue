@@ -1,17 +1,10 @@
 <template>
   <div class="content-box">
-    <TreeFilter
-      label="name"
-      title="部门列表(单选)"
-      :request-api="getUserDepartment"
-      :default-value="treeFilterValue.departmentId"
-      @change="changeTreeFilter"
-    />
+    <TreeFilter label="name" title="部门列表(单选)" :default-value="treeFilterValue.departmentId" @change="changeTreeFilter" />
     <TreeFilter
       title="部门列表(多选)"
       multiple
       label="name"
-      :request-api="getUserDepartment"
       :default-value="treeFilterValue1.departmentId"
       @change="changeTreeFilter1"
     />
@@ -33,7 +26,6 @@
 <script setup lang="ts" name="treeFilter">
 import { reactive } from "vue";
 import { ElMessage } from "element-plus";
-import { getUserDepartment } from "@/api/modules/system/user";
 import TreeFilter from "@/components/TreeFilter/index.vue";
 
 const treeFilterValue = reactive({ departmentId: "1" });

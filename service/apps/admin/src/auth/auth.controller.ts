@@ -1,6 +1,6 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { LocalAuthGuardUser } from './guards/local-auth.guard';
+// import { LocalAuthGuardUser } from './guards/local-auth.guard';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '@libs/db/models/user.model';
 
@@ -9,7 +9,7 @@ import { LoginUserDto } from '@libs/db/models/user.model';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @UseGuards(LocalAuthGuardUser)
+  // @UseGuards(LocalAuthGuardUser)
   @Post('login')
   @ApiOperation({ summary: '用户登录' })
   async login(@Body() loginUserDto: LoginUserDto) {

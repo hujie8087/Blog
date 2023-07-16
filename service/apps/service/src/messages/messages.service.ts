@@ -46,7 +46,6 @@ export class MessagesService {
     });
     const result = await Promise.all(
       data.map(async (item) => {
-        item = item.toObject();
         const replyList = await this.messageModel
           .find({
             replyRootId: item._id,
@@ -58,7 +57,7 @@ export class MessagesService {
           isDel: false,
         });
 
-        return { ...item, replyList, replyNum };
+        return { ...item._doc, replyList, replyNum };
       }),
     );
 

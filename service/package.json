@@ -10,6 +10,8 @@
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
+    "start:admin": "nest start --watch admin",
+    "start:service": "nest start --watch service",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/service/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

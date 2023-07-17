@@ -11,7 +11,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(username: string, password: string): Promise<any> {
+  async validateUser(username: string, password: string) {
     const data = await this.usersService.findOneByName(username);
 
     const user = JSON.parse(JSON.stringify(data || {}));
@@ -26,17 +26,27 @@ export class AuthService {
   }
 
   // 登录
-  async login(user: LoginUserDto) {
+  login(user: LoginUserDto) {
     const payload = {
       username: user.username,
       password: user.password,
     };
-    return {
-      data: {
-        access_token: this.jwtService.sign(payload),
-        code: 200,
-      },
-    };
+    const result = this.validateUser(user.username, user.password);
+    if (result) {
+      return {
+        data: {
+          access_token: this.jwtService.sign(payload),
+          code: 200,
+        },
+      };
+    } else {
+      return {
+        data: {
+          code: 400,
+          msg: '用户名或密码错误',
+        },
+      };
+    }
   }
 
   // 登出

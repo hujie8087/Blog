@@ -18,7 +18,10 @@ const models = TypegooseModule.forFeature([
 @Global()
 @Module({
   imports: [
-    TypegooseModule.forRoot('mongodb://localhost:27017/jaydenBlog', {}),
+    TypegooseModule.forRoot(
+      'mongodb://rootBlog:jayden88080716@http://144.202.10.194:27017/jaydenBlog',
+      {},
+    ),
     models,
   ],
   providers: [DbService],

@@ -11,6 +11,7 @@ async function bootstrap() {
     prefix: '/uploads',
   });
   const options = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('博客-后台管理接口')
     .setDescription('供后台管理使用的服务端接口')
     .setVersion('1.0')

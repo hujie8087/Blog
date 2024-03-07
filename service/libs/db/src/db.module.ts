@@ -19,7 +19,7 @@ const models = TypegooseModule.forFeature([
 @Module({
   imports: [
     TypegooseModule.forRoot(
-      'mongodb://rootBlog:jayden88080716@144.202.10.194:27017/jaydenBlog',
+      'mongodb://blog:jayden080716@120.24.47.159:27017/blog',
       {},
     ),
     models,

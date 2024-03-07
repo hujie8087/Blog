@@ -8,6 +8,7 @@ import {
   UseGuards,
   Query,
   Put,
+  Ip,
 } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { ApiHeader, ApiTags } from '@nestjs/swagger';
@@ -38,7 +39,9 @@ export class ArticlesController {
   }
 
   @Get()
-  findAll(@Query() query: any) {
+  findAll(@Query() query: any, @Ip() ip: string) {
+    console.log(ip);
+
     return this.articlesService.findAll(query);
   }
 

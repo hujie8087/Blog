@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
 import { DbModule } from '@libs/db';
@@ -12,6 +12,7 @@ import { ArticleTagsModule } from './article-tags/article-tags.module';
 import { TimelineController } from './timeline/timeline.controller';
 import { TimelineModule } from './timeline/timeline.module';
 import { TimelineService } from './timeline/timeline.service';
+import { LoggerMiddleware } from './logger/logger.middleware';
 
 @Module({
   imports: [
@@ -29,4 +30,8 @@ import { TimelineService } from './timeline/timeline.service';
   controllers: [AdminController, MessagesController, TimelineController],
   providers: [AdminService, TimelineService],
 })
-export class AdminModule {}
+export class AdminModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
